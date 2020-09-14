@@ -1,0 +1,83 @@
+12:49:17 **** Build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/i2c_driver.d" -MT"drivers/Src/i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/i2c_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:11:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+    ^~~~~~~
+../drivers/Src/i2c_driver.c:3:10: fatal error: i2c_driver.h: No such file or directory
+ #include "i2c_driver.h"
+          ^~~~~~~~~~~~~~
+../drivers/Src/gpio_driver.c:3:10: fatal error: gpio_driver.h: No such file or directory
+ #include "gpio_driver.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:21: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/i2c_driver.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:49:38 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/i2c_driver.d" -MT"drivers/Src/i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/i2c_driver.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../drivers/Src/gpio_driver.c:3:10: fatal error: gpio_driver.h: No such file or directory
+ #include "gpio_driver.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:21: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+../drivers/Src/i2c_driver.c:3:10: fatal error: i2c_driver.h: No such file or directory
+ #include "i2c_driver.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/i2c_driver.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+12:50:27 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/i2c_driver.d" -MT"drivers/Src/i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/i2c_driver.o"
+../drivers/Src/i2c_driver.c:3:10: fatal error: i2c_driver.h: No such file or directory
+ #include "i2c_driver.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+../drivers/Src/gpio_driver.c:3:10: fatal error: gpio_driver.h: No such file or directory
+ #include "gpio_driver.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:21: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [drivers/Src/subdir.mk:23: drivers/Src/i2c_driver.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+13:01:33 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"N:/STM32/stm32f4xx_drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../drivers/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"N:/STM32/stm32f4xx_drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/i2c_driver.d" -MT"drivers/Src/i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/i2c_driver.o"
+arm-none-eabi-gcc "../drivers/Src/spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"N:/STM32/stm32f4xx_drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/spi_driver.d" -MT"drivers/Src/spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/spi_driver.o"
+arm-none-eabi-gcc "../drivers/Src/usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"N:/STM32/stm32f4xx_drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/usart_driver.d" -MT"drivers/Src/usart_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/usart_driver.o"
+../drivers/Src/spi_driver.c:3:10: fatal error: spi_driver.h: No such file or directory
+ #include "spi_driver.h"
+          ^~~~~~~~~~~~~~
+../drivers/Src/i2c_driver.c:3:10: fatal error: i2c_driver.h: No such file or directory
+ #include "i2c_driver.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+compilation terminated.
+../drivers/Src/usart_driver.c:2:10: fatal error: usart_driver.h: No such file or directory
+ #include "usart_driver.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+../drivers/Src/gpio_driver.c:3:10: fatal error: gpio_driver.h: No such file or directory
+ #include "gpio_driver.h"
+          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:29: drivers/Src/i2c_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [drivers/Src/subdir.mk:27: drivers/Src/gpio_driver.o] Error 1
+make: *** [drivers/Src/subdir.mk:31: drivers/Src/spi_driver.o] Error 1
+make: *** [drivers/Src/subdir.mk:33: drivers/Src/usart_driver.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
