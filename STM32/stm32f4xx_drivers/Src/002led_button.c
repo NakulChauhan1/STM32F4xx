@@ -1,41 +1,47 @@
+/*WAP to toggle the on board LED, whenever the on board bbutton is pressed.*/
+
 
 #include "stm32f4xx.h"
+#define LOW 0
+#define BTN_PRESSED LOW							//means when button is pressed low is given to pin in case of nucleo board.
+void delay()
+{
+	for ( uint32_t i = 0; i<50000/2; i++ );
+}
 
 int main()
 {
 	
-	//led gpio configuration
+		//led gpio configuration
 		GPIO_Handle_t led;
 		led.pGPIOx = GPIOD ;
 		led.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
 		led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT  ;
 		led.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_OD ;
 		led.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD ;
-		GPIO_PeriClockControl ( GPIOD, ENABLE );
-	//button gpio configuration
+		//GPIO_PeriClockControl ( GPIOD, ENABLE );    this is not required as it is already done in GPIO_init
+		GPIO_Init ( &led );
+
+
+		//button gpio configuration
 		GPIO_Handle_t button;
 		button.pGPIOx = GPIOA ;
 		button.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_0 ;
-	  button.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INP ;
-	  button.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
+		button.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INP ;
+		button.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
 		button.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD ;					//because by default on board button has pull up or pull down resistor
-		GPIO_PeriClockControl ( GPIOA, ENABLE ) ;
-	
-		GPIO_Init ( &led);
-	  GPIO_Init( &button );
+		GPIO_Init( &button );
 	
 	
 		while( 1 )
 		{
-			if ( GPIO_ReadFromInputPin ( GPIOA, GPIO_PIN_NO_0 ) == SET ) 
+			if ( GPIO_ReadFromInputPin ( button.pGPIOx, button.GPIO_PinConfig.GPIO_PinNumber ) == BTN_PRESSED )
 			{
-				GPIO_WriteToOutputPin ( GPIOD, GPIO_PIN_NO_12, SET);
-			}
-			else if ( GPIO_ReadFromInputPin ( GPIOA, GPIO_PIN_NO_0) == RESET )
-			{
-				GPIO_WriteToOutputPin ( GPIOD, GPIO_PIN_NO_12, RESET );
+				delay();		//to avoid button de-bouncing, it helps in delaying the flow until de-bouncing is not over.
+				GPIO_ToggleOutputPin ( button.pGPIOx, button.GPIO_PinConfig.GPIO_PinNumber);
 			}
 		}
+		/* On pressing the button, weather there will be high or low in the pin is board specific, so we need to see schematic for knowing this*/
 	
 		return 0;
 }

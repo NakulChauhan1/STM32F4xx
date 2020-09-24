@@ -8,16 +8,16 @@
 
 
 
-#include "stm32f4xx.h"						//This file contains mcu specific data //#include "stm32f446xx.h"//Write all the header details here
+#include "stm32f4xx.h"										//mcu specific data, Write all the header details here
 
 typedef struct																																																						//user must pass something to driver layer, some functionality which he want to change, so there must be some strucure which he can fill (apart from base address of Port), so this is structure which he had to fill, in order to have its work done.
 {
-	 	uint8_t GPIO_PinNumber;							/* possible values from @GPIO_PINs */
+	 	uint8_t GPIO_PinNumber;								/* possible values from @GPIO_PINs */
 		uint8_t GPIO_PinMode;								/* possible values from @GPIO_PIN_MODES */
-		uint8_t GPIO_PinOPType;							/* possible values from @GPIO_OPTYPE */
-		uint8_t GPIO_PinSpeed;							/* possible values from @GPIO_PIN_SPEED */
-		uint8_t GPIO_PinPuPdControl;				/* possible values from @GPIO_PD_PU */
-		uint8_t GPIO_PinAltFunMode;					/* possible values from @GPIO_ALTFUNCT */										                       //uint8_t IDR;uint8_t ODR;	uint8_t BSRR;uint8_t LCKR;						//we are not including IDR, ODR because these are not configuration of a pin, if we want to use these register then we will use addreses from mcu specific header file. remember our purpose in driver file is to help user to configure pin
+		uint8_t GPIO_PinOPType;								/* possible values from @GPIO_OPTYPE */
+		uint8_t GPIO_PinSpeed;								/* possible values from @GPIO_PIN_SPEED */
+		uint8_t GPIO_PinPuPdControl;						/* possible values from @GPIO_PD_PU */
+		uint8_t GPIO_PinAltFunMode;							/* possible values from @GPIO_ALTFUNCT */										                       //uint8_t IDR;uint8_t ODR;	uint8_t BSRR;uint8_t LCKR;						//we are not including IDR, ODR because these are not configuration of a pin, if we want to use these register then we will use addreses from mcu specific header file. remember our purpose in driver file is to help user to configure pin
 
 }GPIO_PinConfig_t;																																																				//this structure is optional, without it we would have to make functions which consisits of too many arguements, equal to number of members of structure.
 
@@ -30,18 +30,19 @@ typedef struct
 
 
 //user application can use this macro whenever user application wants to do the settings.
+
 /*
 * @GPIO_PIN_MODES
 * GPIO pin possible mode																										//since these macros are peripheral specific therefore we are creating it in driver.h not mcu_specific.h
 */
 
-#define GPIO_MODE_INP	 		0
-#define GPIO_MODE_OUT 		1
-#define GPIO_MODE_ALTFN 	2
-#define GPIO_MODE_ANALOG 	3
-#define GPIO_MODE_IT_FT 	4			//values 4,5,6 are assumed for interrupt functionality, they values are not taken from reference manual.
-#define GPIO_MODE_IT_RT 	5
-#define GPIO_MODE_IT_RFT 	6
+#define GPIO_MODE_INP	 				0
+#define GPIO_MODE_OUT 					1
+#define GPIO_MODE_ALTFN 				2
+#define GPIO_MODE_ANALOG 				3
+#define GPIO_MODE_IT_FT 				4			//values 4,5,6 are assumed for interrupt functionality, they values are not taken from reference manual.
+#define GPIO_MODE_IT_RT 				5
+#define GPIO_MODE_IT_RFT 				6
 
 
 
@@ -49,8 +50,9 @@ typedef struct
 * @GPIO_OPTYPE
 * GPIO Pin possible output types
 */
-#define GPIO_OP_TYPE_PP  0
-#define GPIO_OP_TYPE_OD  1
+
+#define GPIO_OP_TYPE_PP 				0
+#define GPIO_OP_TYPE_OD  				1
 
 
 
@@ -58,19 +60,21 @@ typedef struct
 * @GPIO_PIN_SPEED
 * GPIO Pin possible output speed
 */
-#define GPIO_SPEED_LOW	 0
-#define GPIO_SPEED_MED   1
-#define GPIO_SPEED_FAST  2
-#define GPIO_SPEED_HIGH  3
+
+#define GPIO_SPEED_LOW	 				0
+#define GPIO_SPEED_MED   				1
+#define GPIO_SPEED_FAST  				2
+#define GPIO_SPEED_HIGH  				3
 
 
 /*
 * @GPIO_PD_PU
 * GPIO Pin Pull up and Pull up macros
 */
-#define GPIO_NO_PUPD	     0
-#define GPIO_PIN_PU   		 1
-#define GPIO_PIN_PD			   2
+
+#define GPIO_NO_PUPD	     			0
+#define GPIO_PIN_PU   		 			1
+#define GPIO_PIN_PD			   			2
 
 
 
@@ -78,22 +82,23 @@ typedef struct
 * @GPIO_PINs
 * GPIO Pin macros
 */
-#define GPIO_PIN_NO_0  0
-#define GPIO_PIN_NO_1  1
-#define GPIO_PIN_NO_2  2
-#define GPIO_PIN_NO_3  3
-#define GPIO_PIN_NO_4  4
-#define GPIO_PIN_NO_5  5
-#define GPIO_PIN_NO_6  6
-#define GPIO_PIN_NO_7  7
-#define GPIO_PIN_NO_8  8
-#define GPIO_PIN_NO_9  9
-#define GPIO_PIN_NO_10 10
-#define GPIO_PIN_NO_11 11
-#define GPIO_PIN_NO_12 12
-#define GPIO_PIN_NO_13 13
-#define GPIO_PIN_NO_14 14
-#define GPIO_PIN_NO_15 15
+
+#define GPIO_PIN_NO_0				 	 0
+#define GPIO_PIN_NO_1  					 1
+#define GPIO_PIN_NO_2 					 2
+#define GPIO_PIN_NO_3  					 3
+#define GPIO_PIN_NO_4  					 4
+#define GPIO_PIN_NO_5  					 5
+#define GPIO_PIN_NO_6  					 6
+#define GPIO_PIN_NO_7  					 7
+#define GPIO_PIN_NO_8  					 8
+#define GPIO_PIN_NO_9  					 9
+#define GPIO_PIN_NO_10 					 10
+#define GPIO_PIN_NO_11 					 11
+#define GPIO_PIN_NO_12 					 12
+#define GPIO_PIN_NO_13 					 13
+#define GPIO_PIN_NO_14 					 14
+#define GPIO_PIN_NO_15 					 15
 
 
 /*
@@ -102,27 +107,23 @@ typedef struct
 */
 
 
-/*
+#define	AF0								 0
+#define	AF1								 1
+#define	AF2								 2
+#define	AF3								 3
+#define	AF4								 4
+#define	AF5								 5
+#define	AF6								 6
+#define	AF7								 8
+#define	AF8								 9
+#define	AF9								 10
+#define	AF10							 11
+#define	AF11							 12
+#define	AF12							 13
+#define	AF13							 14
+#define	AF14							 15
 
-.
-.
-.
-.
 
-#define	0
-#define	1
-#define	2
-#define	3
-#define	4
-#define	5
-#define	6
-#define	7
-
-.
-.
-.
-.
-*/
 
 
 /******************************************************************************************

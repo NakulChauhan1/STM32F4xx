@@ -10,11 +10,38 @@
  static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx );
 
 
+ /*********************************************************************
+  * @fn      				  - I2C_GenerateStartCondition
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
 
  static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx )
  {
 		pI2Cx->CR1 |= ( 1 << I2C_CR1_START );
  }
+
+ /*********************************************************************
+  * @fn      				  - I2C_ExecuteAddressPhaseWrite
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
 
  static void I2C_ExecuteAddressPhaseWrite ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
  {
@@ -30,6 +57,20 @@
 	 //pI2Cx->OAR1 |= ( pI2Cx->I2C_Config.I2C_DeviceAddress << 1 );				//this line was thought by me
  }
 
+ /*********************************************************************
+  * @fn      				  - I2C_ExecuteAddressPhaseRead
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
+
  static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
   {
  		//SlaveAddr contains 7 bit slave address
@@ -41,6 +82,20 @@
   }
 
 
+ /*********************************************************************
+  * @fn      				  - I2C_ClearADDRFlag
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
+
  static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx )
  {
 		//acc. to RTM ADDR is cleared by reading SR1 and SR2.
@@ -48,6 +103,20 @@
 	  dummyRead = pI2Cx->SR2;
 		(void)dummyRead;										//to avoid unused variable error
  }
+
+ /*********************************************************************
+  * @fn      				  - I2C_GenerateStopCondition
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
 
  static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx )
  {
@@ -426,6 +495,20 @@
 		I2C_ManageAcking ( pI2Cx, I2C_ACK_ENABLE );
 
  }
+
+ /*********************************************************************
+* @fn      				  - I2C_MasterReceiveData
+*
+* @brief             -
+*
+* @param[in]         -
+* @param[in]         -
+* @param[in]         -
+*
+* @return            -
+*
+* @Note              -
+*/
 
 
  void I2C_ManageAcking ( I2C_RegDef_t * pI2Cx, uint8_t ENorDi )

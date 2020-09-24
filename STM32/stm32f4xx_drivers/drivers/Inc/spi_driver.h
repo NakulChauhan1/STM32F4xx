@@ -74,43 +74,43 @@ typedef struct
  *	@SPI Data Frame Format
  */
 
-#define SPI_DFF_8BITS								0
-#define SPI_DFF_16BITS							1
+#define SPI_DFF_8BITS															0
+#define SPI_DFF_16BITS															1
 
 /*
  *	@SPI Clock Polarity
  */
 
-#define SPI_CPOL_HIGH		1
-#define SPI_CPOL_LOW		0
+#define SPI_CPOL_HIGH															1
+#define SPI_CPOL_LOW															0
 
 /*
  *	@SPI Clock Phase
  */
 
-#define SPI_CPHA_HIGH		1
-#define SPI_CPHA_LOW		0
+#define SPI_CPHA_HIGH															1
+#define SPI_CPHA_LOW															0
 
 /*
  *	@SPI Slave Select Management
  */
 
-#define SPI_SSM_EN		1
-#define SPI_SSM_DI		0
+#define SPI_SSM_EN																1
+#define SPI_SSM_DI																0
 
 
 /*
  *	@SPI related status flags definitions ( Masking details of various flags )
  */
 
-#define	SPI_TXE_FLAG			( 1 << SPI_SR_TXE )
-#define	SPI_RXNE_FLAG			( 1 << SPI_SR_RXNE )
-#define	SPI_CHSIDE_FLAG		( 1 << SPI_SR_CHSIDE )
-#define	SPI_UDR_FLAG			( 1 << SPI_SR_UDR )
-#define	SPI_BSY_FLAG			( 1 << SPI_SR_BSY )
-#define	SPI_OVR_FLAG			( 1 << SPI_SR_OVR )
-#define	SPI_FRE_FLAG			( 1 << SPI_SR_FRE )
-#define	SPI_CRCERR_FLAG		( 1 << SPI_SR_BSY )
+#define	SPI_TXE_FLAG															( 1 << SPI_SR_TXE )
+#define	SPI_RXNE_FLAG															( 1 << SPI_SR_RXNE )
+#define	SPI_CHSIDE_FLAG															( 1 << SPI_SR_CHSIDE )
+#define	SPI_UDR_FLAG															( 1 << SPI_SR_UDR )
+#define	SPI_BSY_FLAG															( 1 << SPI_SR_BSY )
+#define	SPI_OVR_FLAG															( 1 << SPI_SR_OVR )
+#define	SPI_FRE_FLAG															( 1 << SPI_SR_FRE )
+#define	SPI_CRCERR_FLAG															( 1 << SPI_SR_BSY )
 
 
 

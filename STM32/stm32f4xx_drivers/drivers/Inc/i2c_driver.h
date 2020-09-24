@@ -41,15 +41,15 @@ typedef struct
  */
 
 #define	I2C_SCL_SPEED_SM			100000												//Standard Mode 100k
-#define	I2C_SCL_SPEED_FM4k		400000												//Fast Mode 400k , Note: Anything greater then 400k is considered as Fast Mode
-#define	I2C_SCL_SPEED_FM2k		200000												//Fast Mode 200k
+#define	I2C_SCL_SPEED_FM4k			400000												//Fast Mode 400k , Note: Anything greater then 400k is considered as Fast Mode
+#define	I2C_SCL_SPEED_FM2k			200000												//Fast Mode 200k
 
 
 /*
  * @I2C_SlaveAddress
  */
 
-// user is going to mention the adrress of Slave, therefore no macros.
+// user is going to mention the address of Slave, therefore no macros.
 
 
 /*
@@ -71,20 +71,20 @@ typedef struct
  *	@I2C related status flags definitions ( Masking details of various flags )
  */
 
- #define I2C_SB_FLAG						  ( 1 << I2C_SR1_SB )
- #define I2C_ADDR_FLAG						( 1 << 1 )
- #define I2C_BTF_FLAG				  		( 1 << 2 )
- #define I2C_ADD10_FLAG						( 1 << 3 )
- #define I2C_STOPF_FLAG						( 1 << 4 )
- #define I2C_RxNE_FLAG						( 1 << 6 )
- #define I2C_TxE_FLAG				  		( 1 << 7 )
- #define I2C_BERR_FLAG						( 1 << 8 )
- #define I2C_ARLO_FLAG						( 1 << 9 )
- #define I2C_AF_FLAG				   		( 1 << 10 )
+ #define I2C_SB_FLAG						  	( 1 << I2C_SR1_SB )
+ #define I2C_ADDR_FLAG							( 1 << 1 )
+ #define I2C_BTF_FLAG				  			( 1 << 2 )
+ #define I2C_ADD10_FLAG							( 1 << 3 )
+ #define I2C_STOPF_FLAG							( 1 << 4 )
+ #define I2C_RxNE_FLAG							( 1 << 6 )
+ #define I2C_TxE_FLAG					  		( 1 << 7 )
+ #define I2C_BERR_FLAG							( 1 << 8 )
+ #define I2C_ARLO_FLAG							( 1 << 9 )
+ #define I2C_AF_FLAG					   		( 1 << 10 )
  #define I2C_OVR_FLAG							( 1 << 11 )
- #define I2C_PEC_ERR_FLAG					( 1 << 12 )
- #define I2C_TIMEOUT_FLAG					( 1 << 14 )
- #define I2C_SMBALERT_FLAG				( 1 << 15 )
+ #define I2C_PEC_ERR_FLAG						( 1 << 12 )
+ #define I2C_TIMEOUT_FLAG						( 1 << 14 )
+ #define I2C_SMBALERT_FLAG						( 1 << 15 )
 
 
  /*

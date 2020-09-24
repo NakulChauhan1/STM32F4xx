@@ -24,46 +24,47 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x1c c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .group         0x0000000000000000        0xc Src/001led_toggle.o
- .text          0x0000000000000000        0x0 Src/001led_toggle.o
- .data          0x0000000000000000        0x0 Src/001led_toggle.o
- .bss           0x0000000000000000        0x0 Src/001led_toggle.o
- .text.main     0x0000000000000000        0xe Src/001led_toggle.o
- .debug_info    0x0000000000000000       0x85 Src/001led_toggle.o
- .debug_abbrev  0x0000000000000000       0x45 Src/001led_toggle.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .group         0x0000000000000000        0xc Src/003led_button_ext.o
+ .text          0x0000000000000000        0x0 Src/003led_button_ext.o
+ .data          0x0000000000000000        0x0 Src/003led_button_ext.o
+ .bss           0x0000000000000000        0x0 Src/003led_button_ext.o
+ .text.delay    0x0000000000000000       0x28 Src/003led_button_ext.o
+ .text.main     0x0000000000000000       0x78 Src/003led_button_ext.o
+ .debug_info    0x0000000000000000      0x219 Src/003led_button_ext.o
+ .debug_abbrev  0x0000000000000000       0xd0 Src/003led_button_ext.o
  .debug_aranges
-                0x0000000000000000       0x20 Src/001led_toggle.o
- .debug_ranges  0x0000000000000000       0x10 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0xaf Src/001led_toggle.o
- .debug_macro   0x0000000000000000      0xa66 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0x22 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0x8e Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0x51 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0xef Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0x6a Src/001led_toggle.o
- .debug_macro   0x0000000000000000      0x1df Src/001led_toggle.o
- .debug_macro   0x0000000000000000      0x6d8 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0xc4 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0xb8 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0x94 Src/001led_toggle.o
- .debug_macro   0x0000000000000000       0xb2 Src/001led_toggle.o
- .debug_line    0x0000000000000000      0x412 Src/001led_toggle.o
- .debug_str     0x0000000000000000     0x656f Src/001led_toggle.o
- .comment       0x0000000000000000       0x7c Src/001led_toggle.o
- .debug_frame   0x0000000000000000       0x30 Src/001led_toggle.o
+                0x0000000000000000       0x28 Src/003led_button_ext.o
+ .debug_ranges  0x0000000000000000       0x18 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0xc1 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000      0xa66 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0x22 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0x8e Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0x51 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0xef Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0x6a Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000      0x1df Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000      0x6d8 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000      0x11e Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0xb8 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0x94 Src/003led_button_ext.o
+ .debug_macro   0x0000000000000000       0xb2 Src/003led_button_ext.o
+ .debug_line    0x0000000000000000      0x446 Src/003led_button_ext.o
+ .debug_str     0x0000000000000000     0x6705 Src/003led_button_ext.o
+ .comment       0x0000000000000000       0x7c Src/003led_button_ext.o
+ .debug_frame   0x0000000000000000       0x58 Src/003led_button_ext.o
  .ARM.attributes
-                0x0000000000000000       0x33 Src/001led_toggle.o
+                0x0000000000000000       0x33 Src/003led_button_ext.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
@@ -80,7 +81,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 drivers/Src/gpio_driver.o
  .bss           0x0000000000000000        0x0 drivers/Src/gpio_driver.o
  .text.GPIO_Init
-                0x0000000000000000      0x354 drivers/Src/gpio_driver.o
+                0x0000000000000000      0x358 drivers/Src/gpio_driver.o
  .text.GPIO_DeInit
                 0x0000000000000000      0x144 drivers/Src/gpio_driver.o
  .text.GPIO_PeriClockControl
@@ -120,9 +121,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/gpio_driver.o
  .debug_macro   0x0000000000000000       0x94 drivers/Src/gpio_driver.o
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/gpio_driver.o
- .debug_macro   0x0000000000000000       0xc4 drivers/Src/gpio_driver.o
+ .debug_macro   0x0000000000000000      0x11e drivers/Src/gpio_driver.o
  .debug_line    0x0000000000000000      0x61f drivers/Src/gpio_driver.o
- .debug_str     0x0000000000000000     0x6975 drivers/Src/gpio_driver.o
+ .debug_str     0x0000000000000000     0x69da drivers/Src/gpio_driver.o
  .comment       0x0000000000000000       0x7c drivers/Src/gpio_driver.o
  .debug_frame   0x0000000000000000      0x1f0 drivers/Src/gpio_driver.o
  .ARM.attributes
@@ -168,7 +169,7 @@ Discarded input sections
                 0x0000000000000000       0xe6 drivers/Src/i2c_driver.o
  .text.I2C_ManageAcking
                 0x0000000000000000       0x36 drivers/Src/i2c_driver.o
- .debug_info    0x0000000000000000      0x66d drivers/Src/i2c_driver.o
+ .debug_info    0x0000000000000000      0x672 drivers/Src/i2c_driver.o
  .debug_abbrev  0x0000000000000000      0x175 drivers/Src/i2c_driver.o
  .debug_aranges
                 0x0000000000000000       0x80 drivers/Src/i2c_driver.o
@@ -182,12 +183,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/Src/i2c_driver.o
  .debug_macro   0x0000000000000000      0x1df drivers/Src/i2c_driver.o
  .debug_macro   0x0000000000000000      0x6d8 drivers/Src/i2c_driver.o
- .debug_macro   0x0000000000000000       0xc4 drivers/Src/i2c_driver.o
+ .debug_macro   0x0000000000000000      0x11e drivers/Src/i2c_driver.o
  .debug_macro   0x0000000000000000       0xb8 drivers/Src/i2c_driver.o
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/i2c_driver.o
  .debug_macro   0x0000000000000000       0x8e drivers/Src/i2c_driver.o
- .debug_line    0x0000000000000000      0x5b4 drivers/Src/i2c_driver.o
- .debug_str     0x0000000000000000     0x68c4 drivers/Src/i2c_driver.o
+ .debug_line    0x0000000000000000      0x5b7 drivers/Src/i2c_driver.o
+ .debug_str     0x0000000000000000     0x6929 drivers/Src/i2c_driver.o
  .comment       0x0000000000000000       0x7c drivers/Src/i2c_driver.o
  .debug_frame   0x0000000000000000      0x20c drivers/Src/i2c_driver.o
  .ARM.attributes
@@ -231,12 +232,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/Src/rcc_driver.o
  .debug_macro   0x0000000000000000      0x1df drivers/Src/rcc_driver.o
  .debug_macro   0x0000000000000000      0x6d8 drivers/Src/rcc_driver.o
- .debug_macro   0x0000000000000000       0xc4 drivers/Src/rcc_driver.o
+ .debug_macro   0x0000000000000000      0x11e drivers/Src/rcc_driver.o
  .debug_macro   0x0000000000000000       0xb8 drivers/Src/rcc_driver.o
  .debug_macro   0x0000000000000000       0x94 drivers/Src/rcc_driver.o
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/rcc_driver.o
  .debug_line    0x0000000000000000      0x44d drivers/Src/rcc_driver.o
- .debug_str     0x0000000000000000     0x6749 drivers/Src/rcc_driver.o
+ .debug_str     0x0000000000000000     0x67ae drivers/Src/rcc_driver.o
  .comment       0x0000000000000000       0x7c drivers/Src/rcc_driver.o
  .debug_frame   0x0000000000000000       0x74 drivers/Src/rcc_driver.o
  .ARM.attributes
@@ -288,12 +289,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/Src/spi_driver.o
  .debug_macro   0x0000000000000000      0x1df drivers/Src/spi_driver.o
  .debug_macro   0x0000000000000000      0x6d8 drivers/Src/spi_driver.o
- .debug_macro   0x0000000000000000       0xc4 drivers/Src/spi_driver.o
+ .debug_macro   0x0000000000000000      0x11e drivers/Src/spi_driver.o
  .debug_macro   0x0000000000000000       0x94 drivers/Src/spi_driver.o
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/spi_driver.o
  .debug_macro   0x0000000000000000       0xb2 drivers/Src/spi_driver.o
  .debug_line    0x0000000000000000      0x526 drivers/Src/spi_driver.o
- .debug_str     0x0000000000000000     0x6837 drivers/Src/spi_driver.o
+ .debug_str     0x0000000000000000     0x689c drivers/Src/spi_driver.o
  .comment       0x0000000000000000       0x7c drivers/Src/spi_driver.o
  .debug_frame   0x0000000000000000      0x16c drivers/Src/spi_driver.o
  .ARM.attributes
@@ -335,12 +336,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/Src/usart_driver.o
  .debug_macro   0x0000000000000000      0x1df drivers/Src/usart_driver.o
  .debug_macro   0x0000000000000000      0x6d8 drivers/Src/usart_driver.o
- .debug_macro   0x0000000000000000       0xc4 drivers/Src/usart_driver.o
+ .debug_macro   0x0000000000000000      0x11e drivers/Src/usart_driver.o
  .debug_macro   0x0000000000000000       0xb8 drivers/Src/usart_driver.o
  .debug_macro   0x0000000000000000       0x94 drivers/Src/usart_driver.o
  .debug_macro   0x0000000000000000       0xac drivers/Src/usart_driver.o
  .debug_line    0x0000000000000000      0x4f4 drivers/Src/usart_driver.o
- .debug_str     0x0000000000000000     0x67eb drivers/Src/usart_driver.o
+ .debug_str     0x0000000000000000     0x6850 drivers/Src/usart_driver.o
  .comment       0x0000000000000000       0x7c drivers/Src/usart_driver.o
  .debug_frame   0x0000000000000000       0xa8 drivers/Src/usart_driver.o
  .ARM.attributes
@@ -407,7 +408,7 @@ Linker script and memory map
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/crti.o
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/crtbegin.o
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/crt0.o
-LOAD Src/001led_toggle.o
+LOAD Src/003led_button_ext.o
 LOAD drivers/Src/gpio_driver.o
 LOAD drivers/Src/i2c_driver.o
 LOAD drivers/Src/rcc_driver.o

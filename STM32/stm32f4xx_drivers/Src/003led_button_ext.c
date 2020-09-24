@@ -1,3 +1,8 @@
+/*
+ * WAP to connect external button to the pin number PB12 and external
+ * LED to PA14 toggle the LED whenver external button is pressed.
+*/
+
 #include "stm32f4xx.h"
 
 #define HIGH 1
@@ -31,7 +36,7 @@ int main(void)
 	//this is btn gpio configuration
 	GPIOBtn.pGPIOx = GPIOB;
 	GPIOBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
-	GPIOBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	GPIOBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INP;
 	GPIOBtn.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
 	GPIOBtn.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
 

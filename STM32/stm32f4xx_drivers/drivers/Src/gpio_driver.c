@@ -4,12 +4,10 @@
 
 
 
-//Write all the APIs here
-
 /*********************************************************************
- * @fn      				  - GPIO_Init
+ * @fn      		  - GPIO_Init
  *
- * @brief             -
+ * @brief             - It initializes all the registers of GPIOx according to configuration structure filled by application user
  *
  * @param[in]         -
  * @param[in]         -
@@ -20,29 +18,28 @@
  * @Note              -
  */
 
-void GPIO_Init( GPIO_Handle_t *pGPIOHandle )													//Configure its mode, its speed, its output type, pull-up pull-down resistor configuration, alternate functionality and various other things
+void GPIO_Init( GPIO_Handle_t *pGPIOHandle )																		//Configure its mode, its speed, its output type, pull-up pull-down resistor configuration, alternate functionality and various other things, ie all the things that App user might need, ie configuration structure.
 {
-
 	// Enabling Clock of GPIO Peripheral
 	GPIO_PeriClockControl ( pGPIOHandle->pGPIOx, ENABLE );
 
 
-//Configuring Mode, remember application member will fill all the macros ie all possible value in application layer, thats why we are not taking direct macros. eg we are not using macro GPIO_MODE_ANALOG (ie 11 (value 3)), instead we are using pGPIOHandle->GPIO_PinConfig.GPIO_PinMode , this variable will have all the macros ie macro for 1, macro for 2, macro for 3.
+	//Configuring Mode, remember application member will fill all the macros ie all possible value in application layer, thats why we are not taking direct macros. eg we are not using macro GPIO_MODE_ANALOG (ie 11 (value 3)), instead we are using pGPIOHandle->GPIO_PinConfig.GPIO_PinMode , this variable will have all the macros ie macro for 1, macro for 2, macro for 3.
 	uint32_t temp = 0;		//temporary register
-	if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG )									//non interrupt mode, GPIO_MODE_ANALOG = 4
+	if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG )												//non interrupt mode, GPIO_MODE_ANALOG = 4
 	{
 		temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinMode << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) ;		//where 00 or 01 or 10 or 11 will be placed will be decided by pin number, ie. 2 times the pin number
-		pGPIOHandle->pGPIOx->MODER &= ~ ( 0x3 << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
+		pGPIOHandle->pGPIOx->MODER &= ~ ( 0x3 << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );				//clearing required bits before setting
 		pGPIOHandle->pGPIOx->MODER |= temp;
 	}
 	else
 	{
 		//interrupt mode
-		//note: first of all for interrupt funtionality we need to use NVIC processor support, and we know as per ST design for GPIO peripheral NVIC is not directly attached, NVIC is connected with the help of EXTI block, so first EXTI registers address we should know, therefore we need to structure EXTI registers first
+		//note: first of all for interrupt functionality we need to use NVIC processor support, and we know as per ST design for GPIO peripheral NVIC is not directly attached, NVIC is connected with the help of EXTI block, so first EXTI registers address we should know, therefore we need to structure EXTI registers first
 		if ( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_FT )
 		{
 				//configuring FTSR
-				EXTI_RegDef_t * pEXTI = EXTI	;
+				EXTI_RegDef_t * pEXTI = EXTI;
 				pEXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
 				//clearing RTSR for safety
 				pEXTI->RTSR &= ~( 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
@@ -50,21 +47,22 @@ void GPIO_Init( GPIO_Handle_t *pGPIOHandle )													//Configure its mode, i
 		else if ( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RT )
 		{
 				//configuring RTSR
-				EXTI_RegDef_t * pEXTI = EXTI  ;
+				EXTI_RegDef_t * pEXTI = EXTI;
 				pEXTI->RTSR |= ( 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
 				//clearing FTSR for safety
-			  pEXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
+				pEXTI->FTSR &= ~ (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
 		}
 		else if ( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RFT )
 		{
 				//configuring FTSR and RTSR
-				EXTI_RegDef_t * pEXTI = EXTI	;
+				EXTI_RegDef_t * pEXTI = EXTI;
 				pEXTI->FTSR |= ( 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber )  ;
 				pEXTI->RTSR |= ( 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber )  ;
 		}
-		//configuring SYSCFG_EXTICR GPIO port for selectiion
+		//configuring SYSCFG_EXTICR GPIO port for selection, since GPIOx delivers interrupt through EXTI block and multiple pins delivers through same EXTI, eg Pin 0 of all ports delivers through EXTI0 and so on. Selection of which pin will deliver interrupt right now is decided according to MUX and SYSCFG_EXTICRx register is used to select that, it is select line here.
+		//EXTI0 to EXTI15 is used to deliver interrupt for GPIOs
 
-		uint32_t pcode = getportcode ( pGPIOHandle->pGPIOx ) ;
+		uint32_t pcode = getportcode ( pGPIOHandle->pGPIOx ) ;							//possible inputs to MUX, one out of all inputs will be given as output and EXTIx will be connected to it, and therefore that input ie pin of a GPIO will be able to deliver interrupt
 		uint8_t index = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 4 ;				//for 0 - 4 this is not required, but for pins more than 4, we have to map them into range of 0 -4, otherwise index will go out of range
 
 		SYSCFG_PCLK_EN();																												//before using any peripheral, we have to enable clock of that peripheral.
@@ -94,50 +92,50 @@ void GPIO_Init( GPIO_Handle_t *pGPIOHandle )													//Configure its mode, i
 
 		}
 
-		//enabling the EXTI interrupt delivery
+		//enabling the EXTI interrupt delivery, ie disable mask
 		EXTI->IMR |= ( 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
 
 	}
-//Configuring Speed
-	  temp = 0;
+		//Configuring Speed
+	  	temp = 0;
 		temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ) ;
 		pGPIOHandle->pGPIOx->OSPEEDR &= ~ ( 0x3 << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
-	  pGPIOHandle->pGPIOx->OSPEEDR |= temp;																																					//or is used because we dont want to change other bits, ie we dont want to reinitialise the entire register
+		pGPIOHandle->pGPIOx->OSPEEDR |= temp;																																					//or is used because we dont want to change other bits, ie we dont want to reinitialise the entire register
 
-//Configuring Output type setting
+	  	//Configuring Output type setting
 		temp = 0;
 		temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber ;
 		pGPIOHandle->pGPIOx->OTYPER &= ~ ( 0x1 << ( pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
-	  pGPIOHandle->pGPIOx->OTYPER |= temp;
+		pGPIOHandle->pGPIOx->OTYPER |= temp;
 
-//Configuring PUPD setting
+		//Configuring PUPD setting
 		temp = 0;
 		temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) ;
 		pGPIOHandle->pGPIOx->PUPDR &= ~ ( 0x3 << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
-	  pGPIOHandle->pGPIOx->PUPDR |= temp;
+		pGPIOHandle->pGPIOx->PUPDR |= temp;
 
-//Configuring Alternate Functionality setting
+		//Configuring Alternate Functionality setting
 		temp = 0;
 		if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALTFN )
 		{
 				if(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber < 8 )
 				{
 						temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode << ( 4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber );
-						pGPIOHandle->pGPIOx->AFLRL &= ~ ( 0x3 << ( 2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
-					  pGPIOHandle->pGPIOx->AFLRL |= temp;
+						pGPIOHandle->pGPIOx->AFLRL &= ~ ( 0xF << ( 4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting, 0xf is used because 4 bits need to be reset here, (1111b = 0xf)
+						pGPIOHandle->pGPIOx->AFLRL |= temp;
 				}
 				else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber >= 8 )
 				{
 						temp = pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode << ( 4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8 );			// % 8 because for pin number >= 8 we want to map it into 0 to 7 because register can handle only 7 Alt fxn.
 						pGPIOHandle->pGPIOx->AFLRH &= ~ ( 0xF << ( 4 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber) );							//clearing required bits before setting
-					  pGPIOHandle->pGPIOx->AFLRH |= temp;
+						pGPIOHandle->pGPIOx->AFLRH |= temp;
 				}
 		}
 }
 
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  - GPIO_DeInit
  *
  * @brief             -
  *
@@ -188,7 +186,7 @@ void GPIO_DeInit( GPIO_RegDef_t *pGPIOx )
 
 
 /*********************************************************************
- * @fn      		 			- GPIO_PeriClockControl
+ * @fn      		  - GPIO_PeriClockControl
  *
  * @brief             - This function enables or disables peripheral clock for the given GPIO port
  *
@@ -279,7 +277,7 @@ void GPIO_PeriClockControl( GPIO_RegDef_t * pGPIOx, uint8_t ENorDI)
 
 
 /*********************************************************************
- * @fn      		 			- GPIO_ReadFromInputPort
+ * @fn      		  - GPIO_ReadFromInputPort
  *
  * @brief             - Reads value of a GPIOx Port.
  *
@@ -300,7 +298,7 @@ uint16_t  GPIO_ReadFromInputPort( GPIO_RegDef_t * pGPIOx )
 
 
 /*********************************************************************
- * @fn      		 			- GPIO_ReadFromInputPin
+ * @fn      		  - GPIO_ReadFromInputPin
  *
  * @brief             - Reads specified pin of a GPIOx Port.
  *
@@ -321,7 +319,7 @@ uint8_t  GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber )
 
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      	      - GPIO_WriteToOutputPort
  *
  * @brief             -
  *
@@ -341,7 +339,7 @@ void GPIO_WriteToOutputPort( GPIO_RegDef_t * pGPIOx, uint16_t value )
 
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  - GPIO_WriteToOutputPin
  *
  * @brief             -
  *
@@ -368,7 +366,7 @@ void GPIO_WriteToOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber, uint8_t  
 
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      	      -  GPIO_ToggleOutputPin
  *
  * @brief             -
  *
@@ -383,14 +381,14 @@ void GPIO_WriteToOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber, uint8_t  
 
 void GPIO_ToggleOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber )
 {
-		pGPIOx->ODR ^= (1 << PinNumber );
+		pGPIOx->ODR ^= (1 << PinNumber );								//we have to make 1 if 0 is there, 0 if 1 is there, for that xor is helpful.
 }
 
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  - GPIO_InterruptConfig
  *
- * @brief             -
+ * @brief             - ISER is Interrupt set Eable register, helps in configuring the interrupt at Processor side. from uC side interrupt is configured (by EXTI block), now its time to enable/disable interrupt from processor side (done by NVIC)
  *
  * @param[in]         -
  * @param[in]         -
@@ -401,7 +399,7 @@ void GPIO_ToggleOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber )
  * @Note              -
  */
 
-void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to configure IRQ number like enabling it, disabling, changing priority
+void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to configure IRQ number like enabling it, disabling.
 {
 		//configuring NVIC related registers, or configuring processor registers
 		if( EnorDi == ENABLE )
@@ -409,7 +407,7 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
 			if ( IRQNumber <= 31 )
 			{
 					//program ISER0 register
-					*NVIC_ISER0 |= ( 1 << IRQNumber ) ;
+					*NVIC_ISER0 |= ( 1 << IRQNumber ) ;								//Interrupt set Eable register
 			}
 			else if ( IRQNumber >= 32 && IRQNumber <= 63 )
 			{
@@ -419,7 +417,7 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
 			else if ( IRQNumber >= 64 && IRQNumber <= 95 )
 			{
 					//program ISER2 register
-			  	*NVIC_ISER2 |= ( 1 << IRQNumber%64 ) ;									// %64 is make 64 - 95 in the range of 0 - 31
+			  		*NVIC_ISER2 |= ( 1 << IRQNumber%64 ) ;									// %64 is make 64 - 95 in the range of 0 - 31
 			}
 		}
 		else if( EnorDi == DISABLE )
@@ -427,7 +425,7 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
 			if ( IRQNumber <= 31 )
 			{
 					//program ISER0 register
-					*NVIC_ICER0 |= ( 1 << IRQNumber ) ;
+					*NVIC_ICER0 |= ( 1 << IRQNumber ) ;								//Interrupt clear Eable register
 			}
 			else if ( IRQNumber >= 32 && IRQNumber <= 63 )
 			{
@@ -443,7 +441,7 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
 }
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  -	GPIO_IRQHandling		-
  *
  * @brief             -
  *
@@ -461,12 +459,12 @@ void GPIO_IRQHandling( uint8_t PinNumber )					//means whenever interrupt occurs
 		if ( EXTI->PR && ( 1 << PinNumber )	)						//check if Interrupt is pending or not
 		{
 				//if pending then clear pending register and do whatever work you want to do
-				EXTI->PR |= ( 1 << PinNumber ) ;									//in refernce manual it is given writing 1, clears the PR
+				EXTI->PR |= ( 1 << PinNumber ) ;									//in reference manual it is given writing 1, clears the PR
 		}
 }
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  - GPIO_IRQPriorityConfig			-
  *
  * @brief             -
  *
@@ -490,9 +488,9 @@ void GPIO_IRQPriorityConfig( uint8_t IRQNumber, uint32_t IRQPriority )
 }
 
 /*********************************************************************
- * @fn      		 			-
+ * @fn      		  - getportcode
  *
- * @brief             -
+ * @brief             - helper function, used when SYSCFG_CRx select line have to be applied to EXTIx, it decides which pin will interrupt from one EXTIx, because in desing all the pins which are conneted to one EXTIx can not interrupt processor, only one pin can interrupt at a time.
  *
  * @param[in]         -
  * @param[in]         -

@@ -3,7 +3,7 @@
 #include "spi_driver.h"
 
 /*********************************************************************
- * @fn      				  - SPI_Init
+ * @fn      				  - SPI_PeriClockControl
  *
  * @brief             -
  *
@@ -87,7 +87,7 @@ void SPI_Init ( SPI_Handle_t *pSPIHandle )
 		else if ( pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY )
 		{
 			//Simplex RXONLY
-				temp &= ~ ( 1 << SPI_CR1_BIDIMODE ) ;			////BIDI mode should be cleared first
+				temp &= ~ ( 1 << SPI_CR1_BIDIMODE ) ;			//BIDI mode should be cleared first
 				temp |= ( 1 << SPI_CR1_RXONLY ) ;
 		}
 
@@ -130,7 +130,7 @@ void SPI_DeInit ( SPI_RegDef_t * pSPIx )
 		if ( pSPIx == SPI1 )
 		{
 				RCC->APB2RSTR |= ( 1 << 12 );
-			  RCC->APB2RSTR &= ~( 1 << 12 );
+				RCC->APB2RSTR &= ~( 1 << 12 );
 		}
 		else if ( pSPIx == SPI2 )
 		{
@@ -140,12 +140,12 @@ void SPI_DeInit ( SPI_RegDef_t * pSPIx )
 		else if ( pSPIx == SPI3 )
 		{
 				RCC->APB2RSTR |= ( 1 << 15 );
-			  RCC->APB2RSTR &= ~( 1 << 15 );
+				RCC->APB2RSTR &= ~( 1 << 15 );
 		}
 		else if ( pSPIx == SPI4 )
 		{
 				RCC->APB2RSTR |= ( 1 << 13 );
-			  RCC->APB2RSTR &= ~( 1 << 13 );
+				RCC->APB2RSTR &= ~( 1 << 13 );
 		}
 }
 
@@ -166,7 +166,7 @@ void SPI_DeInit ( SPI_RegDef_t * pSPIx )
  */
 
 
-uint8_t SPI_GetFlagStatus ( SPI_RegDef_t *pSPIx , uint32_t FlagName )											//Flagname is the masking detail of that particular flag, eg. ( 1 << 1 ) for TX flag
+uint8_t SPI_GetFlagStatus ( SPI_RegDef_t *pSPIx , uint32_t FlagName )											//Flag name is the masking detail of that particular flag, eg. ( 1 << 1 ) for TXE flag
 {
 	if(pSPIx->SR & FlagName)							//if this is true then it means that, that particular flag is set.
 	{
@@ -182,12 +182,12 @@ uint8_t SPI_GetFlagStatus ( SPI_RegDef_t *pSPIx , uint32_t FlagName )											
  * @brief             -
  *
  * @param[in]         -
- * @param[in]         - *pTxBuffer is pointer to data which is to be sent
+ * @param[in]         - *pTxBuffer is pointer to data which is to be sent, not the Transmit buffer which is there in SPI block
  * @param[in]         -
  *
  * @return            -
  *
- * @Note              - This is a Blocking call, so untill all bytes are not trasmitted this function will not finish
+ * @Note              - This is a Blocking call, so until all bytes are not transmitted this function will not finish
  */
 
 void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )									//Blocking send API, because the function call will wait until all the bytes are transmitted.
@@ -195,7 +195,7 @@ void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )			
 		//pSPIx->DR = * pTxBuffer ;
 		while ( Len > 0 )
 		{
-				//1. Wait untill TX Buffer is empty, ie TX is set
+				//1. Wait until TX Buffer is empty, ie TX is set
 				//while ( !(pSPIx->SR & ( 1 << 1 )) );
 				while ( SPI_GetFlagStatus ( pSPIx, SPI_TXE_FLAG )  == FLAG_RESET );														//polling TX flag
 
@@ -203,13 +203,13 @@ void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )			
 				{
 					  // 16 bit DFF
 						// 1. Load the data into DR
-					  pSPIx->DR = * (( uint16_t * )pTxBuffer) ;									//typeasting is done to make pTXBuffer pointer of 16 bit, after this DR will get 16 bit data
+					  	pSPIx->DR = * (( uint16_t * )pTxBuffer) ;																			//type casting is done to make pTXBuffer pointer of 16 bit, after this DR will get 16 bit data
 						Len --;
 						Len --;
 						pTxBuffer ++ ;
 						pTxBuffer ++ ;
 				}
-				else																		// 8 bit
+				else																													// 8 bit
 				{
 					  // 8 bit DFF
 						pSPIx->DR = * pTxBuffer ;
@@ -221,7 +221,7 @@ void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )			
 
 
 /*********************************************************************
- * @fn      				  - SPI_Receive
+ * @fn      				  - SPI_ReceiveData
  *
  * @brief             -
  *
@@ -319,17 +319,17 @@ void SPI_SSIConfig ( SPI_RegDef_t * pSPIx, uint8_t ENorDi )
 
 
 /*********************************************************************
- * @fn      				  - SPI_SSOEConfig
+ * @fn      		  - SPI_SSOEConfig
  *
  * @brief             -
  *
  * @param[in]         -
- * @param[in]         - *pTxBuffer is pointer to data which is to be sent
+ * @param[in]         -
  * @param[in]         -
  *
  * @return            -
  *
- * @Note              - This is a Blocking call, so untill all bytes are not trasmitted this function will not finish
+ * @Note              -
  */
 
 
