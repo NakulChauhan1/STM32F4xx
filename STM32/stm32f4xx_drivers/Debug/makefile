@@ -9,7 +9,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include drivers/Src/subdir.mk
--include Startup/subdir.mk
 -include Src/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -40,8 +39,8 @@ stm32f4xx_drivers.bin \
 all: stm32f4xx_drivers.elf secondary-outputs
 
 # Tool invocations
-stm32f4xx_drivers.elf: $(OBJS) $(USER_OBJS) N:\STM32\stm32f4xx_drivers\STM32F446RETX_FLASH.ld
-	arm-none-eabi-gcc -o "stm32f4xx_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"N:\STM32\stm32f4xx_drivers\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32f4xx_drivers.elf: $(OBJS) $(USER_OBJS) N:\stm\stm32\stm32f4xx_drivers\STM32F446RETX_FLASH.ld
+	arm-none-eabi-gcc -o "stm32f4xx_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"N:\stm\stm32\stm32f4xx_drivers\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

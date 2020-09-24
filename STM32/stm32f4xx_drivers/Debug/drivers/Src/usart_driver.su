@@ -1,0 +1,4 @@
+usart_driver.c:22:6:USART_SetBaudRate	40	static
+usart_driver.c:101:6:USART_Init	24	static
+usart_driver.c:193:6:USART_DeInit	16	static
+usart_driver.c:243:6:USART_PeriClockControl	16	static

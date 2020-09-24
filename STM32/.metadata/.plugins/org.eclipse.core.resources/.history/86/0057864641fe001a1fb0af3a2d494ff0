@@ -1,0 +1,97 @@
+
+
+#include "rcc_driver.h"
+
+/*********************************************************************
+ * @fn      				  - RCC_GetPCLK1Value
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+ uint16_t AHB_PreScaler[9] = {2, 4, 8, 16, 64, 128, 256, 512} ;				//array of AHB prescalars, this in finding out prescalar which is to used with SysClk to find out AHBp.
+ uint16_t APB1_PreScaler[4] = { 2, 4, 8, 16 } ;
+
+ uint32_t RCC_GetPCLK1Value ( void )							//generic function to calculate value of PCLK1, fxn for PCLK2 is not required bcz I2C peripheral is not hanging on any other bus, other then APB1 bus;
+ {
+		// we have to find plck1 bcz we have to put plck1 in FREQ field, and for knowing value of plck1 we have to look at the Clock Tree.
+		uint32_t pclk1, SystemClk;				//SystemClk is further divided by prescalar to give pclk.
+
+		uint8_t clksrc;
+
+	  clksrc = ( RCC->CFGR >> 2 ) & 0x03 ;
+		if ( clksrc == 0 )
+		{
+				SystemClk = 16000000;
+		}
+		else if ( clksrc == 1 )
+		{
+				SystemClk = 8000000;
+		}
+		else if ( clksrc == 2 )
+		{
+				SystemClk = RCC_GetPLLOutputClock () ;
+		}
+		//now since we have SystemClock, now we to find prescalar value to find pclk.
+
+		uint32_t AHBp;					//AHB prescalar
+		uint32_t temp = ( RCC->CFGR >> 4 ) & 0xF ;
+		if ( temp < 8 )
+		{
+				AHBp = 1;
+		}
+		else
+		{
+				AHBp = AHB_PreScaler[ temp % 8 ] ;
+		}
+
+		uint32_t APB1p;					//APB1 prescalar
+		temp = ( RCC->CFGR >> 10 ) & 0x07 ;
+		if ( temp < 4 )
+		{
+				APB1p = 1 ;
+		}
+		else
+		{
+				APB1p = APB1_PreScaler [ temp % 4 ] ;
+		}
+
+		//pclk1 on the basis of both the prescalers
+		pclk1 = ( SystemClk / AHBp ) / APB1p ;
+
+		// PLL clock source is ignored here.
+
+		return pclk1 ;
+ }
+
+
+ /*********************************************************************
+  * @fn      		  - RCC_GetPCLK2Value
+  *
+  * @brief             -
+  *
+  * @param[in]         -
+  * @param[in]         -
+  * @param[in]         -
+  *
+  * @return            -
+  *
+  * @Note              -
+  */
+ uint32_t RCC_GetPCLK2Value(void)
+ {
+
+ }
+
+ uint32_t RCC_GetPLLOutputClock ()
+ 	{
+ 			return 0x00;
+ 	}
+

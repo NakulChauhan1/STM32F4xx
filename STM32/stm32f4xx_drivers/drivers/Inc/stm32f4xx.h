@@ -592,6 +592,7 @@ typedef struct
 #include "spi_driver.h"
 #include "i2c_driver.h"
 #include "usart_driver.h"
+#include "rcc_driver.h"
 
 #endif /* __STM32F446xx_H */
 

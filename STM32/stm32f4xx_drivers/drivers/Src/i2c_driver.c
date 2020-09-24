@@ -2,6 +2,60 @@
 
 #include "i2c_driver.h"
 
+
+ static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx );											//helper function private to driver
+ static void I2C_ExecuteAddressPhaseWrite ( I2C_RegDef_t * I2Cx, uint8_t SlaveAddr );
+ static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr );
+ static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx );
+ static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx );
+
+
+
+ static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx )
+ {
+		pI2Cx->CR1 |= ( 1 << I2C_CR1_START );
+ }
+
+ static void I2C_ExecuteAddressPhaseWrite ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
+ {
+		//SlaveAddr contains 7 bit slave address
+		SlaveAddr = ( SlaveAddr << 1 );										//SlaveAddr is of 8 bits size and shifting SlaveAddr by 1 will shift all 7 bits by 1 and space for R/nW will be created in 8th bit place.
+		SlaveAddr &= ~ (1);																//LSB ie 8th bit is R/nW bit which must be set to 0 in order to write.
+		// Now SlaveAddr is ( SlaveAddress + R/nW ).
+
+		pI2Cx->DR = SlaveAddr;														//this clears the SB bit, and slave address is sent by the master
+		// Note: With writing Slave Address to Data Register, not only SB is cleared but also Address Phase is completed.
+		// So, SB is cleared and Address phase is completed with only single line.
+
+	 //pI2Cx->OAR1 |= ( pI2Cx->I2C_Config.I2C_DeviceAddress << 1 );				//this line was thought by me
+ }
+
+ static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
+  {
+ 		//SlaveAddr contains 7 bit slave address
+ 		SlaveAddr = ( SlaveAddr << 1 );										//SlaveAddr is of 8 bits size and shifting SlaveAddr by 1 will shift all 7 bits by 1 and space for R/nW will be created in 8th bit place.
+ 	  SlaveAddr |= (1);																	//LSB ie 8th bit is R/nW bit which must be set to 1 in order to Read.
+
+ 		// Now SlaveAddr is ( SlaveAddress + R/nW ).
+ 	  pI2Cx->DR = SlaveAddr;
+  }
+
+
+ static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx )
+ {
+		//acc. to RTM ADDR is cleared by reading SR1 and SR2.
+		uint32_t dummyRead = pI2Cx->SR1;
+	  dummyRead = pI2Cx->SR2;
+		(void)dummyRead;										//to avoid unused variable error
+ }
+
+ static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx )
+ {
+		pI2Cx->CR1 |= ( 1 << I2C_CR1_STOP );
+ }
+
+
+
 /*********************************************************************
  * @fn      				  - I2C_PeriClockControl
  *
@@ -193,90 +247,8 @@
 
 
 
-			 /*********************************************************************
- * @fn      				  - RCC_GetPCLK1Value
- *
- * @brief             -
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            -
- *
- * @Note              -
- */
 
 
-
- uint32_t RCC_GetPLLOutputClock ()
-	{
-			return 0x00;
-	}
-
- uint16_t AHB_PreScaler[9] = {2, 4, 8, 16, 64, 128, 256, 512} ;				//array of AHB prescalars, this in finding out prescalar which is to used with SysClk to find out AHBp.
- uint16_t APB1_PreScaler[4] = { 2, 4, 8, 16 } ;
-
- uint32_t RCC_GetPCLK1Value ( void )							//generic function to calculate value of PCLK1, fxn for PCLK2 is not required bcz I2C peripheral is not hanging on any other bus, other then APB1 bus;
- {
-		// we have to find plck1 bcz we have to put plck1 in FREQ field, and for knowing value of plck1 we have to look at the Clock Tree.
-		uint32_t pclk1, SystemClk;				//SystemClk is further divided by prescalar to give pclk.
-
-		uint8_t clksrc;
-
-	  clksrc = ( RCC->CFGR >> 2 ) & 0x03 ;
-		if ( clksrc == 0 )
-		{
-				SystemClk = 16000000;
-		}
-		else if ( clksrc == 1 )
-		{
-				SystemClk = 8000000;
-		}
-		else if ( clksrc == 2 )
-		{
-				SystemClk = RCC_GetPLLOutputClock () ;
-		}
-		//now since we have SystemClock, now we to find prescalar value to find pclk.
-
-		uint32_t AHBp;					//AHB prescalar
-		uint32_t temp = ( RCC->CFGR >> 4 ) & 0xF ;
-		if ( temp < 8 )
-		{
-				AHBp = 1;
-		}
-		else
-		{
-				AHBp = AHB_PreScaler[ temp % 8 ] ;
-		}
-
-		uint32_t APB1p;					//APB1 prescalar
-		temp = ( RCC->CFGR >> 10 ) & 0x07 ;
-		if ( temp < 4 )
-		{
-				APB1p = 1 ;
-		}
-		else
-		{
-				APB1p = APB1_PreScaler [ temp % 4 ] ;
-		}
-
-		//pclk1 on the basis of both the prescalers
-		pclk1 = ( SystemClk / AHBp ) / APB1p ;
-
-		// PLL clock source is ignored here.
-
-		return pclk1 ;
- }
-
-
-
- static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx );											//helper function private to driver
- static void I2C_ExecuteAddressPhaseWrite ( I2C_RegDef_t * I2Cx, uint8_t SlaveAddr );
- static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx );
- static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx );
- static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr );
- static void I2C_ManageAcking ( I2C_RegDef_t * pI2Cx, uint8_t EnorDi );
 
   /*********************************************************************
  * @fn      				  - I2C_GetFlagStatus
@@ -362,61 +334,6 @@
 		 I2C_GenerateStopCondition(pI2Cxx);
 	 }
 
- }
-
- static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx )
- {
-		pI2Cx->CR1 |= ( 1 << I2C_CR1_START );
- }
-
- static void I2C_ExecuteAddressPhase ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
- {
-		//SlaveAddr contains 7 bit slave address
-		SlaveAddr = ( SlaveAddr << 1 );										//SlaveAddr is of 8 bits size and shifting SlaveAddr by 1 will shift all 7 bits by 1 and space for R/nW will be created in 8th bit place.
-		SlaveAddr &= ~ (1);																//LSB ie 8th bit is R/nW bit which must be set to 0 in order to write.
-		// Now SlaveAddr is ( SlaveAddress + R/nW ).
-
-		pI2Cx->DR = SlaveAddr;														//this clears the SB bit, and slave address is sent by the master
-		// Note: With writing Slave Address to Data Register, not only SB is cleared but also Address Phase is completed.
-		// So, SB is cleared and Address phase is completed with only single line.
-
-	 //pI2Cx->OAR1 |= ( pI2Cx->I2C_Config.I2C_DeviceAddress << 1 );				//this line was thought by me
- }
-
-
- static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx )
- {
-		//acc. to RTM ADDR is cleared by reading SR1 and SR2.
-		uint32_t dummyRead = pI2Cx->SR1;
-	  dummyRead = pI2Cx->SR2;
-		(void)dummyRead;										//to avoid unused variable error
- }
-
- static void I2C_GenerateStopCondition ( I2C_RegDef_t * pI2Cx )
- {
-		pI2Cx->CR1 |= ( 1 << I2C_CR1_STOP );
- }
-
- static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr )
- {
-		//SlaveAddr contains 7 bit slave address
-		SlaveAddr = ( SlaveAddr << 1 );										//SlaveAddr is of 8 bits size and shifting SlaveAddr by 1 will shift all 7 bits by 1 and space for R/nW will be created in 8th bit place.
-	  SlaveAddr |= (1);																	//LSB ie 8th bit is R/nW bit which must be set to 1 in order to Read.
-
-		// Now SlaveAddr is ( SlaveAddress + R/nW ).
-	  pI2Cx->DR = SlaveAddr;
- }
-
- static void I2C_ManageAcking ( I2C_RegDef_t * pI2Cx, uint8_t ENorDi )
- {
-		if ( ENorDi == I2C_ACK_ENABLE )
-		{
-			pI2Cx->CR1 |= ( 1 << I2C_CR1_ACK );
-		}
-		else
-		{
-				pI2Cx->CR1 &= ~( 1 << I2C_CR1_ACK );
-		}
  }
 
 
@@ -510,5 +427,17 @@
 
  }
 
+
+ void I2C_ManageAcking ( I2C_RegDef_t * pI2Cx, uint8_t ENorDi )
+  {
+ 		if ( ENorDi == I2C_ACK_ENABLE )
+ 		{
+ 			pI2Cx->CR1 |= ( 1 << I2C_CR1_ACK );
+ 		}
+ 		else
+ 		{
+ 				pI2Cx->CR1 &= ~( 1 << I2C_CR1_ACK );
+ 		}
+  }
 
 

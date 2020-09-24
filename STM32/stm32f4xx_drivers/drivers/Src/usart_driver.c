@@ -1,6 +1,88 @@
 
 #include "usart_driver.h"
 
+
+
+/*********************************************************************
+ * @fn      		  - USART_SetBaudRate
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+
+ */
+
+
+void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
+{
+
+	//Variable to hold the APB clock
+	uint32_t PCLKx;
+
+	uint32_t usartdiv;
+
+	//variables to hold Mantissa and Fraction values
+	uint32_t M_part,F_part;
+
+  uint32_t tempreg=0;
+
+  //Get the value of APB bus clock in to the variable PCLKx
+  if(pUSARTx == USART1 || pUSARTx == USART6)
+  {
+	   //USART1 and USART6 are hanging on APB2 bus
+	   PCLKx = RCC_GetPCLK2Value();
+  }else
+  {
+	   PCLKx = RCC_GetPCLK1Value();
+  }
+
+  //Check for OVER8 configuration bit
+  if(pUSARTx->CR1 & (1 << USART_CR1_OVER8))
+  {
+	   //OVER8 = 1 , over sampling by 8
+	   usartdiv = ((25 * PCLKx) / (2 *BaudRate));
+  }else
+  {
+	   //over sampling by 16
+	   usartdiv = ((25 * PCLKx) / (4 *BaudRate));
+  }
+
+  //Calculate the Mantissa part
+  M_part = usartdiv/100;
+
+  //Place the Mantissa part in appropriate bit position . refer USART_BRR
+  tempreg |= M_part << 4;
+
+  //Extract the fraction part
+  F_part = (usartdiv - (M_part * 100));
+
+  //Calculate the final fractional
+  if(pUSARTx->CR1 & ( 1 << USART_CR1_OVER8))
+   {
+	  //OVER8 = 1 , over sampling by 8
+	  F_part = ((( F_part * 8)+ 50) / 100)& ((uint8_t)0x07);
+
+   }else
+   {
+	   //over sampling by 16
+	   F_part = ((( F_part * 16)+ 50) / 100) & ((uint8_t)0x0F);
+
+   }
+
+  //Place the fractional part in appropriate bit position . refer USART_BRR
+  tempreg |= F_part;
+
+  //copy the value of tempreg in to BRR register
+  pUSARTx->BRR = tempreg;
+}
+
+
 /*********************************************************************
  * @fn      		  		- USART_Init
  *
@@ -89,7 +171,7 @@ void USART_Init (	USART_Handle_t *pUSARTHandle	)
 		pUSARTHandle->pUSARTx->CR3 |= temp;
 
 	/******************************** Configuration of BRR(Baudrate register)******************************************/
-	USART_SetBaudRate();
+	USART_SetBaudRate( pUSARTHandle->pUSARTx, pUSARTHandle->USART_Config.USART_Baud );
 }
 
 
@@ -110,60 +192,36 @@ void USART_Init (	USART_Handle_t *pUSARTHandle	)
 
 void USART_DeInit ( USART_RegDef_t * pUSARTx )
 {
-		if ( EnorDi == ENABLE )
-		{
-				if ( pUSARTx == USART1 )
-				{
-						RCC->APB2ENR |= ( 1 << 4 );
-				}
-				else if ( pUSARTx == USART2 )
-				{
-						RCC->APB1ENR |= ( 1 << 17 );
-				}
-				else if ( pUSARTx == USART3 )
-				{
-						RCC->APB1ENR |= ( 1 << 18 );
-				}
-						else if ( pUSARTx == UART4 )
-				{
-						RCC->APB1ENR |= ( 1 << 19 );
-				}
-				else if ( pUSARTx == UART5 )
-				{
-						RCC->APB1ENR |= ( 1 << 20 );
-				}
-				else if ( pUSARTx == USART6 )
-				{
-						RCC->APB2ENR |= ( 1 << 5 );
-				}
-		}
-		else
-		{
-				if ( pUSARTx == USART1 )
-				{
-						USART1_PCLK_DI();
-				}
-				else if ( pUSARTx == USART2 )
-				{
-						USART2_PCLK_DI();
-				}
-				else if ( pUSARTx == USART3 )
-				{
-						USART3_PCLK_DI();
-				}
-						else if ( pUSARTx == UART4 )
-				{
-						UART4_PCLK_DI();
-				}
-				else if ( pUSARTx == UART5 )
-				{
-						UART5_PCLK_DI();
-				}
-				else if ( pUSARTx == USART6 )
-				{
-						USART6_PCLK_DI();
-				}
-		}
+	if ( pUSARTx == USART1 )
+			{
+				RCC->APB2RSTR |= ( 1 << 4 );
+				RCC->APB2RSTR &= ~( 1 << 4 );
+			}
+			else if ( pUSARTx == USART2 )
+			{
+				RCC->APB1RSTR |= ( 1 << 17 );
+	   			RCC->APB1RSTR &= ~( 1 << 17 );
+			}
+			else if ( pUSARTx == USART3 )
+			{
+				RCC->APB1RSTR |= ( 1 << 18 );
+				RCC->APB1RSTR &= ~( 1 << 18 );
+			}
+			else if ( pUSARTx == UART4 )
+			{
+				RCC->APB1RSTR |= ( 1 << 19 );
+				RCC->APB1RSTR &= ~( 1 << 19 );
+			}
+			else if ( pUSARTx == UART5 )
+			{
+				RCC->APB1RSTR |= ( 1 << 20 );
+				RCC->APB1RSTR &= ~( 1 << 20 );
+			}
+			else if ( pUSARTx == USART6 )
+			{
+				RCC->APB2RSTR |= ( 1 << 5 );
+				RCC->APB2RSTR &= ~( 1 << 5 );
+			}
 }
 
 
@@ -177,43 +235,67 @@ void USART_DeInit ( USART_RegDef_t * pUSARTx )
  * @param[in]         -
  *
  * @return            -
- *SZZZZ
+ *
  * @Note              -
 
  */
 
 void USART_PeriClockControl ( USART_RegDef_t * pUSARTx, uint8_t EnorDi )
 {
-		if ( pUSARTx == USART1 )
-		{
-				RCC->APB2RSTR |= ( 1 << 4 );
-				RCC->APB2RSTR &= ~( 1 << 4 );
-		}
-		else if ( pUSARTx == USART2 )
-		{
-				RCC->APB1RSTR |= ( 1 << 17 );
-   			RCC->APB1RSTR &= ~( 1 << 17 );
-		}
-		else if ( pUSARTx == USART3 )
-		{
-				RCC->APB1RSTR |= ( 1 << 18 );
-				RCC->APB1RSTR &= ~( 1 << 18 );
-		}
-		else if ( pUSARTx == UART4 )
-		{
-				RCC->APB1RSTR |= ( 1 << 19 );
-				RCC->APB1RSTR &= ~( 1 << 19 );
-		}
-		else if ( pUSARTx == UART5 )
-		{
-				RCC->APB1RSTR |= ( 1 << 20 );
-				RCC->APB1RSTR &= ~( 1 << 20 );
-		}
-		else if ( pUSARTx == USART6 )
-		{
-				RCC->APB2RSTR |= ( 1 << 5 );
-			  RCC->APB2RSTR &= ~( 1 << 5 );
-		}
+	if ( EnorDi == ENABLE )
+			{
+					if ( pUSARTx == USART1 )
+					{
+							RCC->APB2ENR |= ( 1 << 4 );
+					}
+					else if ( pUSARTx == USART2 )
+					{
+							RCC->APB1ENR |= ( 1 << 17 );
+					}
+					else if ( pUSARTx == USART3 )
+					{
+							RCC->APB1ENR |= ( 1 << 18 );
+					}
+							else if ( pUSARTx == UART4 )
+					{
+							RCC->APB1ENR |= ( 1 << 19 );
+					}
+					else if ( pUSARTx == UART5 )
+					{
+							RCC->APB1ENR |= ( 1 << 20 );
+					}
+					else if ( pUSARTx == USART6 )
+					{
+							RCC->APB2ENR |= ( 1 << 5 );
+					}
+			}
+			else
+			{
+					if ( pUSARTx == USART1 )
+					{
+							USART1_PCLK_DI();
+					}
+					else if ( pUSARTx == USART2 )
+					{
+							USART2_PCLK_DI();
+					}
+					else if ( pUSARTx == USART3 )
+					{
+							USART3_PCLK_DI();
+					}
+							else if ( pUSARTx == UART4 )
+					{
+							UART4_PCLK_DI();
+					}
+					else if ( pUSARTx == UART5 )
+					{
+							UART5_PCLK_DI();
+					}
+					else if ( pUSARTx == USART6 )
+					{
+							USART6_PCLK_DI();
+					}
+			}
 }
 
 /*********************************************************************

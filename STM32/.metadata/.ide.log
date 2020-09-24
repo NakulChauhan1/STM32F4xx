@@ -1,931 +1,250 @@
-2020-09-14 11:56:51,611 [INFO] Activator:176 - 
+2020-09-24 11:50:57,281 [INFO] Activator:176 - 
 
 
-2020-09-14 11:56:51,694 [INFO] Activator:177 - !SESSION log4j initialized
-2020-09-14 12:00:40,624 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
-2020-09-14 12:00:41,834 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
-2020-09-14 12:00:52,207 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
-2020-09-14 12:00:56,087 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
-2020-09-14 12:00:56,775 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
-2020-09-14 12:00:56,775 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:00:56,775 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:00:56,895 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
-2020-09-14 12:01:02,867 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:02,875 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:02,883 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:02,883 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:02,891 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:03,999 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
-2020-09-14 12:01:07,452 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
-2020-09-14 12:01:14,888 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
-2020-09-14 12:01:14,888 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
-2020-09-14 12:01:14,888 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
-2020-09-14 12:01:14,896 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:01:14,896 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:01:14,896 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,896 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,896 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,896 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,896 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,896 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:14,896 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,904 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:14,904 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
-2020-09-14 12:01:23,093 [INFO] MainPanel:180 - HeapMemory: 322961408
-2020-09-14 12:01:25,719 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
-2020-09-14 12:01:25,719 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
-2020-09-14 12:01:25,719 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:01:25,719 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
-2020-09-14 12:01:25,719 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
-2020-09-14 12:01:25,816 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,816 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:25,816 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,816 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:25,824 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,824 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:25,824 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,824 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:25,824 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,824 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
-2020-09-14 12:01:25,824 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,824 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
-2020-09-14 12:01:25,832 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
-2020-09-14 12:01:26,084 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
-2020-09-14 12:01:26,100 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=]
-2020-09-14 12:01:26,340 [INFO] PluginManage:292 - Check plugin analytics
-2020-09-14 12:01:27,352 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
-2020-09-14 12:01:27,352 [INFO] PluginManage:292 - Check plugin clock
-2020-09-14 12:01:27,787 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
-2020-09-14 12:01:27,787 [INFO] PluginManage:292 - Check plugin ddr
-2020-09-14 12:01:27,995 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
-2020-09-14 12:01:27,995 [INFO] PluginManage:292 - Check plugin filemanager
-2020-09-14 12:01:32,977 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
-2020-09-14 12:01:32,977 [INFO] PluginManage:292 - Check plugin ipmanager
-2020-09-14 12:01:33,528 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
-2020-09-14 12:01:33,528 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
-2020-09-14 12:01:34,243 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
-2020-09-14 12:01:34,243 [INFO] PluginManage:292 - Check plugin pinoutconfig
-2020-09-14 12:01:35,075 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
-2020-09-14 12:01:35,075 [INFO] PluginManage:292 - Check plugin power
-2020-09-14 12:01:36,242 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
-2020-09-14 12:01:36,242 [INFO] PluginManage:292 - Check plugin projectmanager
-2020-09-14 12:01:36,432 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
-2020-09-14 12:01:36,432 [INFO] PluginManage:292 - Check plugin thirdparty
-2020-09-14 12:01:38,683 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 380 ms. number of Sw pack : 11
-2020-09-14 12:01:39,507 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
-2020-09-14 12:01:39,507 [INFO] PluginManage:292 - Check plugin tools
-2020-09-14 12:01:40,058 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
-2020-09-14 12:01:40,058 [INFO] PluginManage:292 - Check plugin updater
-2020-09-14 12:01:40,226 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
-2020-09-14 12:01:40,226 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
-2020-09-14 12:01:51,149 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
-2020-09-14 12:01:56,871 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:01:56,871 [INFO] PluginManager:200 - loadIPPluginJar : add adc
-2020-09-14 12:01:57,950 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:01:57,950 [INFO] PluginManager:200 - loadIPPluginJar : add aes
-2020-09-14 12:01:59,146 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:01:59,146 [INFO] PluginManager:200 - loadIPPluginJar : add can
-2020-09-14 12:02:00,952 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:00,952 [INFO] PluginManager:200 - loadIPPluginJar : add comp
-2020-09-14 12:02:01,645 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:01,645 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
-2020-09-14 12:02:02,169 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:02,169 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
-2020-09-14 12:02:02,771 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:02,778 [INFO] PluginManager:200 - loadIPPluginJar : add dma
-2020-09-14 12:02:03,416 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:03,416 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
-2020-09-14 12:02:04,497 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:04,505 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
-2020-09-14 12:02:04,618 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:04,618 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
-2020-09-14 12:02:05,849 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:05,849 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
-2020-09-14 12:02:07,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:07,518 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
-2020-09-14 12:02:07,854 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:07,854 [INFO] PluginManager:200 - loadIPPluginJar : add gfxsimulator
-2020-09-14 12:02:09,505 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:09,505 [INFO] PluginManager:200 - loadIPPluginJar : add gic
-2020-09-14 12:02:10,528 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:10,536 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
-2020-09-14 12:02:11,491 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:11,491 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
-2020-09-14 12:02:11,729 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:11,729 [INFO] PluginManager:200 - loadIPPluginJar : add hash
-2020-09-14 12:02:12,868 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:12,868 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
-2020-09-14 12:02:14,460 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:14,460 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
-2020-09-14 12:02:16,565 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:16,565 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
-2020-09-14 12:02:17,063 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:17,071 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
-2020-09-14 12:02:17,608 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:17,616 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
-2020-09-14 12:02:18,457 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:18,457 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
-2020-09-14 12:02:19,375 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:19,375 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
-2020-09-14 12:02:19,992 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:19,992 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
-2020-09-14 12:02:20,547 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:20,555 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
-2020-09-14 12:02:21,243 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:21,243 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
-2020-09-14 12:02:22,083 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:22,083 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
-2020-09-14 12:02:22,660 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:22,660 [INFO] PluginManager:200 - loadIPPluginJar : add sai
-2020-09-14 12:02:23,198 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:23,198 [INFO] PluginManager:200 - loadIPPluginJar : add spi
-2020-09-14 12:02:23,804 [ERROR] IntegrityCheckThread:94 - Cannot obtain updater plugin
-2020-09-14 12:02:23,804 [INFO] IntegrityCheckThread:98 - End integrity checks thread
-2020-09-14 12:02:23,812 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:02:24,028 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:24,028 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
-2020-09-14 12:02:24,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:24,228 [INFO] PluginManager:200 - loadIPPluginJar : add tim
-2020-09-14 12:02:24,829 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:24,829 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
-2020-09-14 12:02:24,997 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:24,997 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
-2020-09-14 12:02:25,848 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:25,848 [INFO] PluginManager:200 - loadIPPluginJar : add ts
-2020-09-14 12:02:26,344 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:26,344 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
-2020-09-14 12:02:26,408 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:26,416 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
-2020-09-14 12:02:26,663 [INFO] IPUIPlugin:65 - create IPUIPlugin
-2020-09-14 12:02:26,671 [INFO] PluginManager:200 - loadIPPluginJar : add usart
-2020-09-14 12:02:57,112 [INFO] BoardConnectionPanel:226 - [DDR PANEL] osNameString: Windows
-2020-09-14 12:03:08,480 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
-2020-09-14 12:03:08,480 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
-2020-09-14 12:03:19,464 [FATAL] Updater:277 - Updater called before beeing initialized
-2020-09-14 12:03:30,994 [FATAL] Updater:277 - Updater called before beeing initialized
-2020-09-14 12:03:31,593 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
-2020-09-14 12:03:31,593 [FATAL] Updater:277 - Updater called before beeing initialized
-2020-09-14 12:03:31,757 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
-2020-09-14 12:03:31,757 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
-2020-09-14 12:03:31,823 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin\STM32_Programmer_CLI.exe -l
-2020-09-14 12:04:08,718 [INFO] MainDdrPanel:93 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
-2020-09-14 12:04:09,251 [INFO] Updater:886 - Updater Version found : 5.5.0
-2020-09-14 12:04:09,545 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
-2020-09-14 12:04:11,582 [INFO] MainUpdater:2230 - connection check result : 10
-2020-09-14 12:04:11,582 [INFO] MainUpdater:2874 - Updater definition file requires update
-2020-09-14 12:04:11,590 [INFO] MainUpdater:236 - Updater Check For Update Now.
-2020-09-14 12:04:11,590 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
-2020-09-14 12:04:12,137 [INFO] ServerAccessManage:348 - Download File updaters.zip
-2020-09-14 12:04:18,396 [INFO] FileExtend:225 - Unzip File : updaters.zip
-2020-09-14 12:04:18,396 [INFO] FileExtend:240 - Standard Zip Deflate
-2020-09-14 12:04:22,247 [INFO] MainUpdater:2230 - connection check result : 10
-2020-09-14 12:04:22,247 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
-2020-09-14 12:04:27,116 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
-2020-09-14 12:04:27,164 [INFO] FinderPluginLoader:86 - Searching for filters in installed packs
-2020-09-14 12:04:27,172 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
-2020-09-14 12:04:35,146 [INFO] ServerAccessManage:348 - Download File PacksControlFlags.xml
-2020-09-14 12:04:35,861 [INFO] DbMcusJson:87 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:04:38,935 [INFO] ServerAccessManage:348 - Download File cubemx.pidx
-2020-09-14 12:04:43,672 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
-2020-09-14 12:04:43,680 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
-2020-09-14 12:04:43,680 [INFO] ApiDb:163 - User favorites MCUs=[]
-2020-09-14 12:04:43,680 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
-2020-09-14 12:04:47,170 [INFO] DbMcusAds:130 - JSON generation date=Thu Apr 30 19:20:56 IST 2020 (1588254656)
-2020-09-14 12:04:47,170 [WARN] McuDetailPanel:184 - Failed to get advertising image, set to default
-2020-09-14 12:04:49,363 [INFO] DbMcusDocs:126 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:04:49,758 [INFO] DbMcusDocs:61 - Found 580 MCUs documents
-2020-09-14 12:04:49,766 [INFO] ApiDb:186 - Save user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
-2020-09-14 12:04:49,766 [INFO] ApiDb:191 - User favorites MCUs=[]
-2020-09-14 12:04:49,766 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
-2020-09-14 12:04:51,388 [INFO] DbMcusJson:87 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:04:52,523 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-AI.pdsc
-2020-09-14 12:04:52,890 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
-2020-09-14 12:04:52,890 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
-2020-09-14 12:04:52,890 [INFO] ApiDb:163 - User favorites MCUs=[]
-2020-09-14 12:04:52,890 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
-2020-09-14 12:04:53,271 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
-2020-09-14 12:04:54,380 [INFO] DbBoardsDocs:118 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:04:54,583 [INFO] DbBoardsPdsc:92 - Found 21 items
-2020-09-14 12:04:54,646 [INFO] DbBoardsPdsc:92 - Found 9 items
-2020-09-14 12:04:54,703 [INFO] DbBoardsPdsc:92 - Found 27 items
-2020-09-14 12:04:54,751 [INFO] DbBoardsPdsc:92 - Found 1 items
-2020-09-14 12:04:54,823 [INFO] DbBoardsPdsc:92 - Found 40 items
-2020-09-14 12:04:54,911 [INFO] DbBoardsPdsc:92 - Found 39 items
-2020-09-14 12:04:54,956 [INFO] DbBoardsPdsc:92 - Found 2 items
-2020-09-14 12:04:55,037 [INFO] DbBoardsPdsc:92 - Found 4 items
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:04:55,084 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:04:55,647 [INFO] DbBoardsJson:79 - JSON generation date=Wed May 20 17:06:55 IST 2020 (1589974615)
-2020-09-14 12:04:55,680 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
-2020-09-14 12:04:55,712 [INFO] DbBoardsDocs:118 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:04:55,752 [INFO] DbBoardsDocs:57 - Found 183 boards documents
-2020-09-14 12:04:55,752 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
-2020-09-14 12:04:55,752 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
-2020-09-14 12:04:55,752 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
-2020-09-14 12:04:55,752 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
-2020-09-14 12:04:55,760 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
-2020-09-14 12:04:58,269 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
-2020-09-14 12:05:07,270 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-BLE1.pdsc
-2020-09-14 12:05:14,268 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:16,198 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-BLE2.pdsc
-2020-09-14 12:05:17,079 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-GNSS1.pdsc
-2020-09-14 12:05:18,751 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:18,759 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
-2020-09-14 12:05:18,759 [INFO] ApiDb:163 - User favorites Boards=[]
-2020-09-14 12:05:18,759 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
-2020-09-14 12:05:18,775 [INFO] DbBoardsDocs:57 - Found 366 boards documents
-2020-09-14 12:05:18,775 [INFO] ApiDb:186 - Save user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
-2020-09-14 12:05:18,775 [INFO] ApiDb:191 - User favorites Boards=[]
-2020-09-14 12:05:18,791 [INFO] DbBoardsPdsc:92 - Found 21 items
-2020-09-14 12:05:18,791 [INFO] DbBoardsPdsc:92 - Found 9 items
-2020-09-14 12:05:18,807 [INFO] DbBoardsPdsc:92 - Found 27 items
-2020-09-14 12:05:18,807 [INFO] DbBoardsPdsc:92 - Found 1 items
-2020-09-14 12:05:18,823 [INFO] DbBoardsPdsc:92 - Found 40 items
-2020-09-14 12:05:18,839 [INFO] DbBoardsPdsc:92 - Found 39 items
-2020-09-14 12:05:18,839 [INFO] DbBoardsPdsc:92 - Found 2 items
-2020-09-14 12:05:18,847 [INFO] DbBoardsPdsc:92 - Found 4 items
-2020-09-14 12:05:18,855 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
-2020-09-14 12:05:18,855 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
-2020-09-14 12:05:18,855 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
-2020-09-14 12:05:18,855 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
-2020-09-14 12:05:18,863 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
-2020-09-14 12:05:18,863 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
-2020-09-14 12:05:18,863 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:05:18,863 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:05:18,895 [INFO] DbBoardsJson:79 - JSON generation date=Wed May 20 17:06:55 IST 2020 (1589974615)
-2020-09-14 12:05:18,903 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
-2020-09-14 12:05:18,911 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
-2020-09-14 12:05:18,911 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
-2020-09-14 12:05:18,911 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
-2020-09-14 12:05:18,911 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
-2020-09-14 12:05:18,919 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
-2020-09-14 12:05:18,919 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
-2020-09-14 12:05:18,919 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
-2020-09-14 12:05:18,919 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
-2020-09-14 12:05:18,919 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
-2020-09-14 12:05:18,927 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
-2020-09-14 12:05:19,383 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:19,415 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
-2020-09-14 12:05:19,987 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:20,576 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:21,064 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
-2020-09-14 12:05:21,064 [INFO] ApiDb:163 - User favorites Boards=[]
-2020-09-14 12:05:21,064 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
-2020-09-14 12:05:21,200 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:21,525 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
-2020-09-14 12:05:21,825 [ERROR] ServerAccessManage:947 - Problem, file not found on Server
-2020-09-14 12:05:21,961 [WARN] BoardDetailPanel:182 - Failed to get advertising image, set to default
-2020-09-14 12:05:22,217 [INFO] DbMcusDocs:126 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:05:22,737 [INFO] DbMcusDocs:61 - Found 580 MCUs documents
-2020-09-14 12:05:22,737 [INFO] ApiDb:186 - Save user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
-2020-09-14 12:05:22,737 [INFO] ApiDb:191 - User favorites MCUs=[]
-2020-09-14 12:05:22,793 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
-2020-09-14 12:05:22,993 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-MEMS1.pdsc
-2020-09-14 12:05:24,109 [INFO] DbMcusJson:87 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:05:25,617 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
-2020-09-14 12:05:25,625 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
-2020-09-14 12:05:25,625 [INFO] ApiDb:163 - User favorites MCUs=[]
-2020-09-14 12:05:25,625 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
-2020-09-14 12:05:26,003 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
-2020-09-14 12:05:26,211 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-NFC4.pdsc
-2020-09-14 12:05:27,227 [INFO] DbBoardsDocs:118 - JSON generation date=Wed May 20 21:04:35 IST 2020 (1589988875)
-2020-09-14 12:05:27,243 [INFO] DbBoardsDocs:57 - Found 183 boards documents
-2020-09-14 12:05:27,243 [INFO] ApiDb:186 - Save user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
-2020-09-14 12:05:27,243 [INFO] ApiDb:191 - User favorites Boards=[]
-2020-09-14 12:05:27,259 [INFO] DbBoardsPdsc:92 - Found 21 items
-2020-09-14 12:05:27,259 [INFO] DbBoardsPdsc:92 - Found 9 items
-2020-09-14 12:05:27,267 [INFO] DbBoardsPdsc:92 - Found 27 items
-2020-09-14 12:05:27,267 [INFO] DbBoardsPdsc:92 - Found 1 items
-2020-09-14 12:05:27,275 [INFO] DbBoardsPdsc:92 - Found 40 items
-2020-09-14 12:05:27,291 [INFO] DbBoardsPdsc:92 - Found 39 items
-2020-09-14 12:05:27,299 [INFO] DbBoardsPdsc:92 - Found 2 items
-2020-09-14 12:05:27,315 [INFO] DbBoardsPdsc:92 - Found 4 items
-2020-09-14 12:05:27,315 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
-2020-09-14 12:05:27,315 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:05:27,331 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
-2020-09-14 12:05:27,395 [INFO] DbBoardsJson:79 - JSON generation date=Wed May 20 17:06:55 IST 2020 (1589974615)
-2020-09-14 12:05:27,411 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
-2020-09-14 12:05:27,411 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
-2020-09-14 12:05:27,411 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
-2020-09-14 12:05:27,419 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
-2020-09-14 12:05:27,427 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
-2020-09-14 12:05:28,139 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
-2020-09-14 12:05:28,875 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-SUBG2.pdsc
-2020-09-14 12:05:29,510 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
-2020-09-14 12:05:29,510 [INFO] ApiDb:163 - User favorites Boards=[]
-2020-09-14 12:05:29,510 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
-2020-09-14 12:05:29,526 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
-2020-09-14 12:05:29,882 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-TOUCHGFX.pdsc
-2020-09-14 12:05:29,930 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
-2020-09-14 12:05:31,164 [INFO] ServerAccessManage:348 - Download File STMicroelectronics.X-CUBE-ALGOBUILD.pdsc
-2020-09-14 12:05:32,741 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
-2020-09-14 12:05:32,997 [INFO] LoadServerUpdatesThread:301 - End of LoadServerUpdate Thread
-2020-09-14 12:05:33,190 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
-2020-09-14 12:05:33,943 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 31 ms. number of Sw pack : 11
-2020-09-14 12:05:34,302 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:35,692 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 16 ms. number of Sw pack : 12
-2020-09-14 12:05:35,772 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:35,844 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 8 ms. number of Sw pack : 13
-2020-09-14 12:05:36,068 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:36,188 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 16 ms. number of Sw pack : 14
-2020-09-14 12:05:36,196 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:36,323 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 16 ms. number of Sw pack : 15
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,443 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,451 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,459 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,467 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,475 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,483 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,491 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,499 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,507 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:596 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:36,515 [INFO] MxPackages:636 - 
-2020-09-14 12:05:37,598 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:37,752 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 24 ms. number of Sw pack : 16
-2020-09-14 12:05:38,152 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:38,336 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 40 ms. number of Sw pack : 17
-2020-09-14 12:05:38,392 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:39,199 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 16 ms. number of Sw pack : 18
-2020-09-14 12:05:39,271 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:39,729 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 24 ms. number of Sw pack : 19
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,246 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,254 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,262 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,270 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,278 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,286 [INFO] MxPackages:636 - 
-2020-09-14 12:05:40,294 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:41,035 [INFO] PopulateThirdPartyThread:48 - Ending populate Thread
-2020-09-14 12:05:41,495 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 24 ms. number of Sw pack : 20
-2020-09-14 12:05:41,503 [INFO] Engine:366 - softwarePackList size : 20
-2020-09-14 12:05:42,634 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-AI have been done, and update is requested
-2020-09-14 12:05:43,096 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-BLE1 have been done, and update is requested
-2020-09-14 12:05:43,128 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-BLE2 have been done, and update is requested
-2020-09-14 12:05:43,152 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-GNSS1 have been done, and update is requested
-2020-09-14 12:05:43,888 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-MEMS1 have been done, and update is requested
-2020-09-14 12:05:43,928 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-NFC4 have been done, and update is requested
-2020-09-14 12:05:43,944 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-SUBG2 have been done, and update is requested
-2020-09-14 12:05:43,968 [INFO] Engine:382 - compute dependency for SwPack X-CUBE-TOUCHGFX have been done, no update is requested
-2020-09-14 12:05:43,968 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-ALGOBUILD have been done, and update is requested
-2020-09-14 12:05:44,048 [INFO] Engine:378 - compute dependency for SwPack CMSIS have been done, and update is requested
-2020-09-14 12:05:44,632 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-MEMS1 have been done, and update is requested
-2020-09-14 12:05:44,672 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-AI have been done, and update is requested
-2020-09-14 12:05:44,728 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-BLE1 have been done, and update is requested
-2020-09-14 12:05:44,760 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-BLE2 have been done, and update is requested
-2020-09-14 12:05:44,800 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-GNSS1 have been done, and update is requested
-2020-09-14 12:05:45,488 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-MEMS1 have been done, and update is requested
-2020-09-14 12:05:45,512 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-NFC4 have been done, and update is requested
-2020-09-14 12:05:45,528 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-SUBG2 have been done, and update is requested
-2020-09-14 12:05:45,544 [INFO] Engine:382 - compute dependency for SwPack X-CUBE-TOUCHGFX have been done, no update is requested
-2020-09-14 12:05:45,552 [INFO] Engine:378 - compute dependency for SwPack X-CUBE-ALGOBUILD have been done, and update is requested
-2020-09-14 12:05:45,576 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
-2020-09-14 12:05:45,688 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 24 ms. number of Sw pack : 20
-2020-09-14 12:05:45,768 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:45,776 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:45,776 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:45,776 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:45,776 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:45,776 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:45,864 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:45,864 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:45,864 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:45,864 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:45,992 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:45,992 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:45,992 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.1.0
-2020-09-14 12:05:45,992 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:45,992 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.1.0
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.0
-2020-09-14 12:05:46,032 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 2.0.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.1.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.0
-2020-09-14 12:05:46,064 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 2.0.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.1.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.14.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.0
-2020-09-14 12:05:46,088 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 5.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 2.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 8.1.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.14.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.1.2
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 2.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 2.0.0
-2020-09-14 12:05:46,120 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.1.0
-2020-09-14 12:11:24,593 [INFO] BoardResultTable:559 - Mark Board NUCLEO-F446RE as favorite
-2020-09-14 12:11:29,720 [INFO] ServerAccessManage:348 - Download File 
-2020-09-14 12:11:36,710 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
-2020-09-14 12:11:36,832 [INFO] BoardAction:180 - Large Picture
-2020-09-14 12:11:39,149 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
-2020-09-14 12:11:39,149 [INFO] BoardAction:180 - Large Picture
-2020-09-14 12:11:40,371 [INFO] BoardAction:78 - Docs & Resources
-2020-09-14 12:11:48,275 [INFO] ServerAccessManage:348 - Download File DB2196.pdf
-2020-09-14 12:11:51,458 [INFO] BoardAction:143 - Datasheet
-2020-09-14 12:11:52,491 [ERROR] ServerAccessManage:517 - User Cancel Download : DB2196.pdf.
-2020-09-14 12:11:52,491 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
-2020-09-14 12:11:54,059 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
-2020-09-14 12:11:54,059 [INFO] BoardAction:180 - Large Picture
-2020-09-14 12:18:45,746 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.2
-2020-09-14 12:18:45,776 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.1
-2020-09-14 12:18:45,776 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.0
+2020-09-24 11:50:57,289 [INFO] Activator:177 - !SESSION log4j initialized
+2020-09-24 11:51:13,552 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-09-24 11:51:13,591 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-09-24 11:51:13,630 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-09-24 11:51:13,630 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:13,632 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:13,637 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-09-24 11:51:13,655 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:13,658 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:13,664 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:13,667 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:13,671 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:13,685 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-09-24 11:51:14,070 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
+2020-09-24 11:51:14,803 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
+2020-09-24 11:51:14,804 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-09-24 11:51:14,805 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-09-24 11:51:14,807 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:14,808 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:14,808 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-09-24 11:51:14,809 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,809 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:14,810 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,810 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:14,811 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,811 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:14,811 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,812 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:14,813 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,813 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:14,814 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,814 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:14,815 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-09-24 11:51:15,718 [INFO] MainPanel:180 - HeapMemory: 315621376
+2020-09-24 11:51:15,864 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-09-24 11:51:15,865 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-09-24 11:51:15,865 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:15,866 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-09-24 11:51:15,867 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-09-24 11:51:15,869 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,869 [INFO] DbMcusAds:72 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:15,870 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,871 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:15,872 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,873 [INFO] DbMcusJson:59 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:15,873 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,874 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:15,874 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,875 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/
+2020-09-24 11:51:15,875 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,876 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder/ => C:\Users\NAKUL\.stmcufinder\plugins\mcufinder
+2020-09-24 11:51:15,876 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-09-24 11:51:16,048 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-09-24 11:51:16,054 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=]
+2020-09-24 11:51:16,058 [INFO] PluginManage:292 - Check plugin analytics
+2020-09-24 11:51:16,072 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-09-24 11:51:16,073 [INFO] PluginManage:292 - Check plugin clock
+2020-09-24 11:51:16,115 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-09-24 11:51:16,115 [INFO] PluginManage:292 - Check plugin ddr
+2020-09-24 11:51:16,123 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-09-24 11:51:16,123 [INFO] PluginManage:292 - Check plugin filemanager
+2020-09-24 11:51:16,540 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-09-24 11:51:16,541 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-09-24 11:51:16,600 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-09-24 11:51:16,600 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-09-24 11:51:16,632 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-09-24 11:51:16,632 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-09-24 11:51:18,106 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-09-24 11:51:18,107 [INFO] PluginManage:292 - Check plugin power
+2020-09-24 11:51:18,129 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-09-24 11:51:18,130 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-09-24 11:51:18,177 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-09-24 11:51:18,177 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-09-24 11:51:18,738 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 399 ms. number of Sw pack : 22
+2020-09-24 11:51:18,868 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-09-24 11:51:18,869 [INFO] PluginManage:292 - Check plugin tools
+2020-09-24 11:51:18,893 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-09-24 11:51:18,894 [INFO] PluginManage:292 - Check plugin updater
+2020-09-24 11:51:18,945 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-09-24 11:51:18,946 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
+2020-09-24 11:51:20,863 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-09-24 11:51:22,268 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,269 [INFO] PluginManager:200 - loadIPPluginJar : add adc
+2020-09-24 11:51:22,274 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,274 [INFO] PluginManager:200 - loadIPPluginJar : add aes
+2020-09-24 11:51:22,280 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,280 [INFO] PluginManager:200 - loadIPPluginJar : add can
+2020-09-24 11:51:22,283 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,284 [INFO] PluginManager:200 - loadIPPluginJar : add comp
+2020-09-24 11:51:22,289 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,289 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
+2020-09-24 11:51:22,295 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,296 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
+2020-09-24 11:51:22,307 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,309 [INFO] PluginManager:200 - loadIPPluginJar : add dma
+2020-09-24 11:51:22,312 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,313 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
+2020-09-24 11:51:22,320 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,320 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
+2020-09-24 11:51:22,332 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,332 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
+2020-09-24 11:51:22,336 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,336 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
+2020-09-24 11:51:22,341 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,342 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
+2020-09-24 11:51:22,348 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,348 [INFO] PluginManager:200 - loadIPPluginJar : add gfxsimulator
+2020-09-24 11:51:22,359 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,359 [INFO] PluginManager:200 - loadIPPluginJar : add gic
+2020-09-24 11:51:22,369 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,371 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
+2020-09-24 11:51:22,377 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,378 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
+2020-09-24 11:51:22,383 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,384 [INFO] PluginManager:200 - loadIPPluginJar : add hash
+2020-09-24 11:51:22,392 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,393 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
+2020-09-24 11:51:22,399 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,400 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
+2020-09-24 11:51:22,408 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,409 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
+2020-09-24 11:51:22,413 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,413 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
+2020-09-24 11:51:22,421 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,422 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
+2020-09-24 11:51:22,443 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,444 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
+2020-09-24 11:51:22,450 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,451 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
+2020-09-24 11:51:22,457 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,458 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
+2020-09-24 11:51:22,471 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,478 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
+2020-09-24 11:51:22,481 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,482 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
+2020-09-24 11:51:22,488 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,488 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
+2020-09-24 11:51:22,494 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,494 [INFO] PluginManager:200 - loadIPPluginJar : add sai
+2020-09-24 11:51:22,499 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,499 [INFO] PluginManager:200 - loadIPPluginJar : add spi
+2020-09-24 11:51:22,504 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,504 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
+2020-09-24 11:51:22,507 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,508 [INFO] PluginManager:200 - loadIPPluginJar : add tim
+2020-09-24 11:51:22,515 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,516 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
+2020-09-24 11:51:22,519 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,520 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
+2020-09-24 11:51:22,526 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,526 [INFO] PluginManager:200 - loadIPPluginJar : add ts
+2020-09-24 11:51:22,530 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,530 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
+2020-09-24 11:51:22,534 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,534 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
+2020-09-24 11:51:22,540 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-09-24 11:51:22,541 [INFO] PluginManager:200 - loadIPPluginJar : add usart
+2020-09-24 11:51:23,789 [INFO] BoardConnectionPanel:226 - [DDR PANEL] osNameString: Windows
+2020-09-24 11:51:24,041 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-09-24 11:51:24,043 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
+2020-09-24 11:51:24,319 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-09-24 11:51:24,827 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-09-24 11:51:24,828 [ERROR] IntegrityCheckThread:252 - Cannot obtain thirdParties list 21
+2020-09-24 11:51:24,828 [ERROR] IntegrityCheckThread:100 - Unexpected exception IntegrityCheckThread Thread: Updater error
+2020-09-24 11:51:24,829 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/NAKUL/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-09-24 11:51:25,402 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-09-24 11:51:25,412 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-09-24 11:51:25,413 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-09-24 11:51:25,425 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-09-24 11:51:25,426 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-09-24 11:51:25,438 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin\STM32_Programmer_CLI.exe -l
+2020-09-24 11:51:25,769 [INFO] MainDdrPanel:93 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-09-24 11:51:25,784 [INFO] Updater:886 - Updater Version found : 5.5.0
+2020-09-24 11:51:25,861 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-09-24 11:51:26,334 [INFO] MainUpdater:2230 - connection check result : 10
+2020-09-24 11:51:26,336 [INFO] MainUpdater:236 - Updater Check For Update Now.
+2020-09-24 11:51:26,337 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-09-24 11:51:26,525 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-09-24 11:51:26,588 [INFO] MainUpdater:2230 - connection check result : 10
+2020-09-24 11:51:26,590 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
+2020-09-24 11:51:27,350 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
+2020-09-24 11:51:27,494 [INFO] FinderPluginLoader:86 - Searching for filters in installed packs
+2020-09-24 11:51:27,498 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
+2020-09-24 11:51:30,099 [INFO] DbMcusJson:87 - JSON generation date=Mon Jul 27 18:28:30 IST 2020 (1595854710)
+2020-09-24 11:51:33,804 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
+2020-09-24 11:51:33,806 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-09-24 11:51:33,806 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-09-24 11:51:33,807 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
+2020-09-24 11:51:37,307 [INFO] DbMcusAds:130 - JSON generation date=Mon Jul 27 20:28:30 IST 2020 (1595861910)
+2020-09-24 11:51:37,326 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-09-24 11:51:37,689 [INFO] McuDetailPanel:181 - Set advertising image to C:/Users/NAKUL/STM32Cube/Repository/\STM32Cube_ecosystem_N4273S_big.jpg
+2020-09-24 11:51:41,265 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
+2020-09-24 11:51:42,291 [INFO] DbBoardsPdsc:92 - Found 21 items
+2020-09-24 11:51:42,295 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-09-24 11:51:42,304 [INFO] DbBoardsPdsc:92 - Found 27 items
+2020-09-24 11:51:42,308 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-09-24 11:51:42,332 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-09-24 11:51:42,349 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-09-24 11:51:42,353 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-09-24 11:51:42,359 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-09-24 11:51:42,375 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-09-24 11:51:42,375 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-09-24 11:51:42,381 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-09-24 11:51:42,382 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-09-24 11:51:42,382 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-09-24 11:51:42,382 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-09-24 11:51:42,384 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-09-24 11:51:42,385 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-09-24 11:51:42,423 [INFO] DbBoardsJson:79 - JSON generation date=Thu Jul 02 19:05:57 IST 2020 (1593696957)
+2020-09-24 11:51:42,445 [INFO] DbBoards:120 - Found 145 boards (140 are supported by CubeMX)
+2020-09-24 11:51:42,490 [INFO] DbBoardsDocs:118 - JSON generation date=Mon Jul 27 18:28:30 IST 2020 (1595854710)
+2020-09-24 11:51:42,551 [INFO] DbBoardsDocs:57 - Found 185 boards documents
+2020-09-24 11:51:42,554 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-09-24 11:51:42,577 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-09-24 11:51:42,578 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-09-24 11:51:42,579 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-09-24 11:51:42,580 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-09-24 11:51:42,581 [WARN] DbBoards:152 - board B-G474E-DPOW1 / document id not found: 4624
+2020-09-24 11:51:42,581 [WARN] DbBoards:152 - board B-G474E-DPOW1 / document id not found: 4625
+2020-09-24 11:51:42,582 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-09-24 11:51:42,583 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-09-24 11:51:42,585 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-09-24 11:51:42,588 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-09-24 11:51:42,589 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-09-24 11:51:42,590 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-09-24 11:51:42,591 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-09-24 11:51:42,591 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-09-24 11:51:42,592 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-09-24 11:51:42,592 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-09-24 11:51:42,592 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-09-24 11:51:42,593 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-09-24 11:51:45,807 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
+2020-09-24 11:51:48,571 [ERROR] DbBoards:192 - Image file not found for board B-L4S5I-IOT01A: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/B-L4S5I-IOT01A_small.jpg
+2020-09-24 11:51:48,572 [INFO] ApiDb:158 - Load user favorites file C:\Users\NAKUL/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-09-24 11:51:48,572 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-09-24 11:51:48,572 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-09-24 11:51:48,789 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-09-24 11:51:48,790 [INFO] BoardDetailPanel:179 - Set advertising image to C:/Users/NAKUL/STM32Cube/Repository/\STM32Cube_ecosystem_N4273S_big.jpg
+2020-09-24 11:51:48,850 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
+2020-09-24 11:51:49,696 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: C:\Users\NAKUL\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
+2020-09-24 11:52:09,092 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.2
+2020-09-24 11:52:09,094 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.1
+2020-09-24 11:52:09,095 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.24.0
+2020-09-24 12:44:12,624 [INFO] Activator:176 - 
+
+
+2020-09-24 12:44:12,656 [INFO] Activator:177 - !SESSION log4j initialized
