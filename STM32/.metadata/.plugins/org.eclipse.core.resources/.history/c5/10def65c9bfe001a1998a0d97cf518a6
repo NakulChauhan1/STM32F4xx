@@ -2,9 +2,8 @@
 
 #include "i2c_driver.h"
 
-//helper functions private to driver, other files cannot access these functions
 
- static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx );
+ static void I2C_GenerateStartCondition ( I2C_RegDef_t * pI2Cx );											//helper function private to driver
  static void I2C_ExecuteAddressPhaseWrite ( I2C_RegDef_t * I2Cx, uint8_t SlaveAddr );
  static void I2C_ExecuteAddressPhaseRead ( I2C_RegDef_t * pI2Cx, uint8_t SlaveAddr );
  static void I2C_ClearADDRFlag ( I2C_RegDef_t * pI2Cx );
@@ -193,19 +192,19 @@
 
 		//1. Configuring ACK
 		uint32_t temp = 0 ;
-		temp |= pI2Cxx->I2C_Config.I2C_ACKControl << I2C_CR1_ACK ;
+	  temp |= pI2Cxx->I2C_Config.I2C_ACKControl << I2C_CR1_ACK ;
 		pI2Cxx->pI2Cx->CR1 |= temp ;
 
 		//2. Configuring FREQ field
 		//now for freq field the freq bits must be configured with the APB clock frequency value. So, we have to calculate value of APB1 bus clock frequency.
 		temp = 0 ;
 		uint32_t pclk1 = RCC_GetPCLK1Value ();
-		temp |=  ( pclk1 )/1000000U ;				//dividing by 1M bcz we want only value not exponentials, values like 16, 8 etc
+		temp |=  ( pclk1 )/1000000U ;				//divind by 1M bcz we want only value not exponentials, values like 16, 8 etc
 		pI2Cxx->pI2Cx->CR2 |= temp ;
 
 		//3. now setting Slave Address
 		temp = 0 ;
-		uint8_t addMode = 0 ;															//this bit tells weather slave address is 7 bit or 10 bit, by default its zero. (its incomplete)
+		uint8_t addMode = 0 ;															//this bit tells wheather slave address is 7 bit or 10 bit, by default its zero. (its incomplete)
 
 		if ( addMode == 1 )														//10 bit slave address
 		{
@@ -316,6 +315,10 @@
 
 
 
+
+
+
+
   /*********************************************************************
  * @fn      				  - I2C_GetFlagStatus
  *
@@ -330,7 +333,7 @@
  * @Note              -
  */
 
- uint8_t I2C_GetFlagStatus ( I2C_RegDef_t * pI2Cx, uint32_t flagName )								//Flag name is the masking detail of that particular flag, eg. ( 1 << 1 ) for TX flag
+ uint8_t I2C_GetFlagStatus ( I2C_RegDef_t * pI2Cx, uint32_t flagName )								//Flagname is the masking detail of that particular flag, eg. ( 1 << 1 ) for TX flag
  {
 	 if ( pI2Cx->SR1 & flagName )																		//if this is true then it means that, that particular flag is set.
 	 {
@@ -360,10 +363,10 @@
 		I2C_GenerateStartCondition ( pI2Cxx  );
 
 		// 2. Confirm that start generation is completed by checking the SB flag in the SR1. This has to be done because SB takes some time to be 1.
-		// Note: if we will not check the SB bit for 1, then data can be lost because SCL is pulled to 0 until SB!=1 (ie SB=0), thats why checking SB bit and halting execution until SB = 0 is important.
-		//Note: till SB is cleared, SCL will be stretched (ie pulled to LOW)
+		// Note: if we will not check the SB bit for 1, then data can be lost because SCL is pulled to 0 untill SB=1, thats why checking SB bit and halting execution until SB = 1 is important.
+		//Note: Until SB is cleared SCL will be stretched (ie pulled to LOW)
 
-	  while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_SB_FLAG ) );					//execution will be stopped here until fxn returns 1, ie SB is generated successfully.
+	  while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_SB_FLAG ) );					//execution will be stoped here until fxn returns 1, ie SB is generated successfully.
 		//Note: for clearing the SB bit we have read SR1 and will write to DR in Address Phase, so SB bit will be cleared
 
 	  // 3. Send the address of the slave with R/nW bit set to w(0) ( total 8 bits ), this will be send by writing Address to Data Register.
@@ -373,20 +376,20 @@
 		while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_ADDR_FLAG ) );
 
 		// 5. Clear the ADDR flag according to its software sequence
-		// Note: Until ADDR is not cleared SCL will be stretched ( pull to low ) thats why checking ADDR and halting execution till ADDR=1 is important.
+		// Note: Until ADDR is not cleared SCL will be stretched ( pull to low ) thats why checking ADDR and halting execution until SB=1 is important.
 		I2C_ClearADDRFlag ( pI2Cxx );
 
 		// 6. Send Data until length becomes zero
 	 while ( Len > 0 )
 	 {
-			while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_TxE_FLAG ) );				//checking weather Data Register is empty or not.
+			while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_TxE_FLAG ) );				//checking wheather Data Register is empty or not.
 			pI2Cxx->DR = * Txbuffer;
 			Txbuffer ++;
 			Len --;
 	 }
 
 	 // 7. When Len becomes zero wait for TXE=1 and BTF=1 before generating the STOP condition.
-	 // Note: TxE=1, BTF=1, means that both Shift Register (SR) and DR are empty and next transmission should begin
+	 // Note: TxE=1, BTF=1, means that both SR and DR are empty and next transmission should begin
 	 // when BTF=1, SCL will be stretched (pulled to LOW)
 	 while ( !I2C_GetFlagStatus ( pI2Cxx, I2C_TxE_FLAG ) );
 	 while ( I2C_GetFlagStatus ( pI2Cxx, I2C_BTF_FLAG ) );
@@ -494,7 +497,7 @@
  }
 
  /*********************************************************************
-* @fn      				  - I2C_ManageAcking
+* @fn      				  - I2C_MasterReceiveData
 *
 * @brief             -
 *

@@ -30,9 +30,9 @@ typedef struct
  * Possible options for USART_Mode
  */
 
-#define USART_MODE_TX_ONLY					0
-#define USART_MODE_RX_ONLY					1
-#define USART_MODE_TXRX_ONLY				2
+#define USART_MODE_TX_ONLY			0
+#define USART_MODE_RX_ONLY			1
+#define USART_MODE_TXRX_ONLY		2
 
 
 /*
@@ -50,8 +50,8 @@ typedef struct
 #define USART_STD_BAUD_230400				230400
 #define USART_STD_BAUD_460800				460800
 #define USART_STD_BAUD_921600				921600
-#define USART_STD_BAUD_2M					2000000
-#define USART_STD_BAUD_3M					3000000
+#define USART_STD_BAUD_2M						2000000
+#define USART_STD_BAUD_3M						3000000
 
 
 /*
@@ -59,9 +59,9 @@ typedef struct
  *Possible options for USART_ParityControl
  */
 
-#define USART_PARITY_EN_ODD 			 	2
-#define USART_PARITY_EN_EVEN  				1
-#define USART_PARITY_DISABLE   				0
+#define USART_PARITY_EN_ODD 			  2
+#define USART_PARITY_EN_EVEN  			1
+#define USART_PARITY_DISABLE   			0
 
 
 /*
@@ -87,10 +87,10 @@ typedef struct
  *Possible options for USART_HWFlowControl
  */
 
-#define USART_HW_FLOW_CTRL_NONE    			0
-#define USART_HW_FLOW_CTRL_CTS    			1
-#define USART_HW_FLOW_CTRL_RTS    			2
-#define USART_HW_FLOW_CTRL_CTS_RTS			3
+#define USART_HW_FLOW_CTRL_NONE    	0
+#define USART_HW_FLOW_CTRL_CTS    	1
+#define USART_HW_FLOW_CTRL_RTS    	2
+#define USART_HW_FLOW_CTRL_CTS_RTS	3
 
 
 /******************************************************************************************

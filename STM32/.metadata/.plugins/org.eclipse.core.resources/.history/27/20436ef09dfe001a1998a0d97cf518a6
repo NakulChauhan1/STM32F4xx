@@ -170,7 +170,7 @@ void USART_Init (	USART_Handle_t *pUSARTHandle	)
 		//Programming the CR3 register
 		pUSARTHandle->pUSARTx->CR3 |= temp;
 
-	/******************************** Configuration of BRR(Baud rate register)******************************************/
+	/******************************** Configuration of BRR(Baudrate register)******************************************/
 	USART_SetBaudRate( pUSARTHandle->pUSARTx, pUSARTHandle->USART_Config.USART_Baud );
 }
 
@@ -299,7 +299,7 @@ void USART_PeriClockControl ( USART_RegDef_t * pUSARTx, uint8_t EnorDi )
 }
 
 /*********************************************************************
- * @fn      		  		-
+ * @fn      		  		- USART_Init
  *
  * @brief             -
  *

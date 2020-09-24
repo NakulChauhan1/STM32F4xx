@@ -200,12 +200,12 @@
 		//now for freq field the freq bits must be configured with the APB clock frequency value. So, we have to calculate value of APB1 bus clock frequency.
 		temp = 0 ;
 		uint32_t pclk1 = RCC_GetPCLK1Value ();
-		temp |=  ( pclk1 )/1000000U ;				//dividing by 1M bcz we want only value not exponentials, values like 16, 8 etc
+		temp |=  ( pclk1 )/1000000U ;				//divind by 1M bcz we want only value not exponentials, values like 16, 8 etc
 		pI2Cxx->pI2Cx->CR2 |= temp ;
 
 		//3. now setting Slave Address
 		temp = 0 ;
-		uint8_t addMode = 0 ;															//this bit tells weather slave address is 7 bit or 10 bit, by default its zero. (its incomplete)
+		uint8_t addMode = 0 ;															//this bit tells wheather slave address is 7 bit or 10 bit, by default its zero. (its incomplete)
 
 		if ( addMode == 1 )														//10 bit slave address
 		{
