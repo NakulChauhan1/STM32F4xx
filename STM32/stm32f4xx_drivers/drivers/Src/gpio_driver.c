@@ -396,10 +396,10 @@ void GPIO_ToggleOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber )
  *
  * @return            -
  *
- * @Note              -
+ * @Note              - used to configure NVIC registers
  */
 
-void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to configure IRQ number like enabling it, disabling.
+void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to configure IRQ number like enabling it, disabling in processor side ie in NVIC block.
 {
 		//configuring NVIC related registers, or configuring processor registers
 		if( EnorDi == ENABLE )
@@ -440,6 +440,31 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
 		}
 }
 
+
+/*********************************************************************
+ * @fn      		  - GPIO_IRQPriorityConfig			-
+ *
+ * @brief             - used for changing priority of interrupt (irq)
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+void GPIO_IRQPriorityConfig( uint8_t IRQNumber, uint32_t IRQPriority )
+{
+		uint8_t reg_number = IRQPriority / 4 ;																	// it tells in which NVIC Priority register we have to use
+		uint8_t reg_section = IRQPriority % 4 ; 																// it tells which in bit of a NVIC Priority register we have to use
+
+		uint8_t shifting_amount = 8 * reg_section + ( 8 - NO_PR_BITS_IMPLEMENTED ) ;
+		*( NVIC_IPR_BASEADDR + reg_number ) |= ( IRQPriority << shifting_amount ) ;					//lower 4 bits are not implemented in each and every field of this register, therefore we have shift by additional 4 amount
+																																												//note: above
+}
+
 /*********************************************************************
  * @fn      		  -	GPIO_IRQHandling		-
  *
@@ -463,29 +488,6 @@ void GPIO_IRQHandling( uint8_t PinNumber )					//means whenever interrupt occurs
 		}
 }
 
-/*********************************************************************
- * @fn      		  - GPIO_IRQPriorityConfig			-
- *
- * @brief             -
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            -
- *
- * @Note              -
- */
-
-void GPIO_IRQPriorityConfig( uint8_t IRQNumber, uint32_t IRQPriority )
-{
-		uint8_t reg_number = IRQPriority / 4 ;																	// it tells in which NVIC Priority register we have to use
-		uint8_t reg_section = IRQPriority % 4 ; 																// it tells which in bit of a NVIC Priority register we have to use
-
-		uint8_t shifting_amount = 8 * reg_section + ( 8 - NO_PR_BITS_IMPLEMENTED ) ;
-		*( NVIC_IPR_BASEADDR + reg_number ) |= ( IRQPriority << shifting_amount ) ;					//lower 4 bits are not implemented in each and every field of this register, therefore we have shift by additional 4 amount
-																																												//note: above
-}
 
 /*********************************************************************
  * @fn      		  - getportcode

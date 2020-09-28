@@ -248,3 +248,32 @@
 
 
 2020-09-24 12:44:12,656 [INFO] Activator:177 - !SESSION log4j initialized
+2020-09-24 18:59:58,639 [INFO] Activator:176 - 
+
+
+2020-09-24 18:59:58,679 [INFO] Activator:177 - !SESSION log4j initialized
+2020-09-25 00:11:04,740 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://sw-center.st.com:80: Connection reset
+2020-09-25 00:11:05,831 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2020-09-25 00:11:05,831 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://sw-center.st.com:80: Network is unreachable: connect
+2020-09-25 00:11:05,831 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2020-09-25 00:11:05,831 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://sw-center.st.com:80: Network is unreachable: connect
+2020-09-25 00:11:05,839 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2020-09-25 00:11:26,595 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://sw-center.st.com:80: Connection reset
+2020-09-25 00:11:26,595 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2020-09-25 00:11:29,261 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Artifact repository out of sync. Overwriting C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.4.0.202007081208
+2020-09-25 00:11:29,325 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Artifact repository out of sync. Overwriting C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-arm-embedded.7-2018-q2-update.win32_1.4.0.202007081208
+2020-09-25 00:11:29,341 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Artifact repository out of sync. Overwriting C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.jlink.win32_1.4.0.202007081208
+2020-09-26 23:19:14,679 [INFO] Activator:176 - 
+
+
+2020-09-26 23:19:14,847 [INFO] Activator:177 - !SESSION log4j initialized
+2020-09-26 23:20:22,261 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
+2020-09-26 23:20:22,308 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2020-09-26 23:37:20,360 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {s}->https://download.eclipse.org:443: Socket Closed
+2020-09-26 23:37:20,368 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2020-09-26 23:37:56,627 [INFO] Activator:178 - 
+
+
+2020-09-26 23:37:56,689 [INFO] Activator:179 - !SESSION log4j initialized
+2020-09-26 23:39:01,614 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
+2020-09-26 23:39:01,614 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443

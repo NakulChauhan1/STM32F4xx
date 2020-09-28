@@ -1,0 +1,11 @@
+/*
+ * SPI master (STM) and SPI slave (Arduino) command and response based communication.
+ * When button is pressed on the master side, master should send a command to the slave (Arduino) connected.
+ * and slave responds as per the command implementation
+ * 1. use SPI full duplex communication
+ * 2. ST as Master and Arduino as Slave
+ * 3. use dff = 0
+ * 4. Use Hardware Slave Management
+ * 5. SCLK = 2Mhz, fclk = 16Mhz
+ *
+ */

@@ -192,7 +192,6 @@ uint8_t SPI_GetFlagStatus ( SPI_RegDef_t *pSPIx , uint32_t FlagName )											
 
 void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )									//Blocking send API, because the function call will wait until all the bytes are transmitted.
 {
-		//pSPIx->DR = * pTxBuffer ;
 		while ( Len > 0 )
 		{
 				//1. Wait until TX Buffer is empty, ie TX is set
@@ -243,11 +242,11 @@ void SPI_ReceiveData ( SPI_RegDef_t * pSPIx, uint8_t * pRxBuffer, uint32_t Len )
 				if ( pSPIx->CR1 & ( 1 << SPI_CR1_DFF ) )
 				{
 						//16 bit DFF
-						//1. load the data from DR to Rxbuffer address
+						//1. load the data from DR to Rx buffer address
 						*( uint16_t * )pRxBuffer = pSPIx->DR;
 						Len --;
 						Len --;
-					  pRxBuffer ++;
+					    pRxBuffer ++;
 						pRxBuffer ++;
 				}
 				else
@@ -345,61 +344,3 @@ void SPI_SSOEConfig ( SPI_RegDef_t * pSPIx, uint8_t ENorDi )
 		}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )
-{
-		while ( Len > 0)
-		{
-				while (  );				//TX Buffer Empty
-				if ( pSPIx->CR1 >> 11 )
-				{
-						//16 bit DFF
-						pSPIx->DR = *(uint16_t *)pTxBuffer ;
-						Len --;
-						Len --;
-						pTxBuffer ++;
-						pTxBuffer ++;
-				}
-				else
-				{
-						//8 bit DFF
-						pSPIx->DR = *pTxBuffer ;
-						pTxBuffer ++;
-						Len --;
-				}
-		}
-}*/

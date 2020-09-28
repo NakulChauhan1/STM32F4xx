@@ -1,0 +1,405 @@
+
+
+#include "spi_driver.h"
+
+/*********************************************************************
+ * @fn      				  - SPI_PeriClockControl
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+ void SPI_PeriClockControl ( SPI_RegDef_t * pSPIx, uint8_t EnorDi )
+ {
+		if(EnorDi == ENABLE)
+	{
+		if(pSPIx == SPI1)
+		{
+			SPI1_PLCK_EN();
+		}else if (pSPIx == SPI2)
+		{
+			SPI2_PCLK_EN();
+		}else if (pSPIx == SPI3)
+		{
+			SPI3_PCLK_EN();
+		}
+	}
+	else
+	{
+		if(pSPIx == SPI1)
+		{
+			SPI1_PLCK_DI();
+		}else if (pSPIx == SPI2)
+		{
+			SPI2_PCLK_DI();
+		}else if (pSPIx == SPI3)
+		{
+			SPI3_PCLK_DI();
+		}
+	}
+ }
+
+/*********************************************************************
+ * @fn      				  - SPI_Init
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+
+void SPI_Init ( SPI_Handle_t *pSPIHandle )
+{
+
+		//Enabling clock of SPI peripheral
+		SPI_PeriClockControl ( pSPIHandle->pSPIx, ENABLE ) ;
+
+		//Configuring SPI_CR1 register
+		uint32_t temp = 0;												//we need not clear the bits everytime because we are starting with temp = 0
+
+		//1. Configuring Device Mode
+		temp |= ( pSPIHandle->SPIConfig.SPI_DeviceMode << 2 ) ;
+
+		//2. Configuring Bus Configuration
+		if ( pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_FD )
+		{
+			//full duplex
+			temp |= ( 1 << SPI_CR1_BIDIMODE ) ;
+		}
+		else if ( pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_HD )
+		{
+			//half duplex
+			temp &= ~( 1 << SPI_CR1_BIDIMODE ) ;
+		}
+		else if ( pSPIHandle->SPIConfig.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY )
+		{
+			//Simplex RXONLY
+				temp &= ~ ( 1 << SPI_CR1_BIDIMODE ) ;			//BIDI mode should be cleared first
+				temp |= ( 1 << SPI_CR1_RXONLY ) ;
+		}
+
+		//3. Configure the spi serial clock speed (baud rate)
+		temp |= ( pSPIHandle->SPIConfig.SPI_SclkSpeed << SPI_CR1_BR ) ;
+
+		//4.  Configure the DFF
+		temp |= ( pSPIHandle->SPIConfig.SPI_DFF << SPI_CR1_DFF ) ;
+
+		//5. configure the CPOL
+		temp |= ( pSPIHandle->SPIConfig.SPI_CPOL << SPI_CR1_CPOL ) ;
+
+		//6. configure the CPHA
+		temp |= ( pSPIHandle->SPIConfig.SPI_CPHA << SPI_CR1_CPHA ) ;
+
+		//7. configure the SSM
+		temp |= ( pSPIHandle->SPIConfig.SPI_SSM << SPI_CR1_SSM ) ;
+
+		pSPIHandle->pSPIx->CR1 |= temp;
+
+}
+
+
+/*********************************************************************
+ * @fn      				  - SPI_DeInit
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+void SPI_DeInit ( SPI_RegDef_t * pSPIx )
+{
+		if ( pSPIx == SPI1 )
+		{
+				RCC->APB2RSTR |= ( 1 << 12 );
+				RCC->APB2RSTR &= ~( 1 << 12 );
+		}
+		else if ( pSPIx == SPI2 )
+		{
+				RCC->APB2RSTR |= ( 1 << 14 );
+				RCC->APB2RSTR &= ~( 1 << 14 );
+		}
+		else if ( pSPIx == SPI3 )
+		{
+				RCC->APB2RSTR |= ( 1 << 15 );
+				RCC->APB2RSTR &= ~( 1 << 15 );
+		}
+		else if ( pSPIx == SPI4 )
+		{
+				RCC->APB2RSTR |= ( 1 << 13 );
+				RCC->APB2RSTR &= ~( 1 << 13 );
+		}
+}
+
+
+
+/*********************************************************************
+ * @fn      				  - SPI_GetFlagStatus
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+
+uint8_t SPI_GetFlagStatus ( SPI_RegDef_t *pSPIx , uint32_t FlagName )											//Flag name is the masking detail of that particular flag, eg. ( 1 << 1 ) for TXE flag
+{
+	if(pSPIx->SR & FlagName)							//if this is true then it means that, that particular flag is set.
+	{
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}
+
+
+/*********************************************************************
+ * @fn      				  - SPI_SendData
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         - *pTxBuffer is pointer to data which is to be sent, not the Transmit buffer which is there in SPI block
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              - This is a Blocking call, so until all bytes are not transmitted this function will not finish
+ */
+
+void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )									//Blocking send API, because the function call will wait until all the bytes are transmitted.
+{
+		//pSPIx->DR = * pTxBuffer ;
+		while ( Len > 0 )
+		{
+				//1. Wait until TX Buffer is empty, ie TX is set
+				//while ( !(pSPIx->SR & ( 1 << 1 )) );
+				while ( SPI_GetFlagStatus ( pSPIx, SPI_TXE_FLAG )  == FLAG_RESET );														//polling TX flag
+
+				if ( pSPIx->CR1 & ( 1 << SPI_CR1_DFF ) )
+				{
+					  // 16 bit DFF
+						// 1. Load the data into DR
+					  	pSPIx->DR = * (( uint16_t * )pTxBuffer) ;																			//type casting is done to make pTXBuffer pointer of 16 bit, after this DR will get 16 bit data
+						Len --;
+						Len --;
+						pTxBuffer ++ ;
+						pTxBuffer ++ ;
+				}
+				else																													// 8 bit
+				{
+					  // 8 bit DFF
+						pSPIx->DR = * pTxBuffer ;
+						Len -- ;
+						pTxBuffer ++ ;
+				}
+		}
+}
+
+
+/*********************************************************************
+ * @fn      				  - SPI_ReceiveData
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+void SPI_ReceiveData ( SPI_RegDef_t * pSPIx, uint8_t * pRxBuffer, uint32_t Len )
+{
+		while ( Len > 0 )
+		{
+				while ( SPI_GetFlagStatus ( pSPIx, SPI_RXNE_FLAG ) == FLAG_SET );						//wait until Rx Buffer is not empty
+
+				if ( pSPIx->CR1 & ( 1 << SPI_CR1_DFF ) )
+				{
+						//16 bit DFF
+						//1. load the data from DR to Rxbuffer address
+						*( uint16_t * )pRxBuffer = pSPIx->DR;
+						Len --;
+						Len --;
+					  pRxBuffer ++;
+						pRxBuffer ++;
+				}
+				else
+				{
+						//8 bit DFF
+						*pRxBuffer = pSPIx->DR;
+						Len --;
+						pRxBuffer ++;
+				}
+		}
+}
+
+
+
+/*********************************************************************
+ * @fn      				  - SPI_PeripheralControl
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         - *pTxBuffer is pointer to data which is to be sent
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              - This is a Blocking call, so untill all bytes are not trasmitted this function will not finish
+ */
+
+
+void SPI_PeripheralControl ( SPI_RegDef_t * pSPIx, uint8_t ENorDi  )
+{
+		if ( ENorDi == ENABLE )
+		{
+			pSPIx->CR1 |= ( 1 << SPI_CR1_SPE );
+		}
+		else
+		{
+			pSPIx->CR1 &= ~( 1 << SPI_CR1_SPE );
+		}
+}
+
+/*********************************************************************
+ * @fn      				  - SPI_SSIConfig
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         - *pTxBuffer is pointer to data which is to be sent
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              - This is a Blocking call, so untill all bytes are not trasmitted this function will not finish
+ */
+
+
+void SPI_SSIConfig ( SPI_RegDef_t * pSPIx, uint8_t ENorDi )
+{
+		if ( ENorDi == ENABLE )
+		{
+				pSPIx->CR1 |= ( 1 << SPI_CR1_SSI ) ;
+		}
+		else
+		{
+				pSPIx->CR1 &= ~( 1 << SPI_CR1_SSI ) ;
+		}
+}
+
+
+
+/*********************************************************************
+ * @fn      		  - SPI_SSOEConfig
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+ */
+
+
+void SPI_SSOEConfig ( SPI_RegDef_t * pSPIx, uint8_t ENorDi )
+{
+		if ( ENorDi == ENABLE )
+		{
+				pSPIx->CR2 |= ( 1 << SPI_CR2_SSOE ) ;
+		}
+		else
+		{
+				pSPIx->CR2 &= ~( 1 << SPI_CR2_SSOE ) ;
+		}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*void SPI_SendData ( SPI_RegDef_t * pSPIx, uint8_t * pTxBuffer, uint32_t Len )
+{
+		while ( Len > 0)
+		{
+				while (  );				//TX Buffer Empty
+				if ( pSPIx->CR1 >> 11 )
+				{
+						//16 bit DFF
+						pSPIx->DR = *(uint16_t *)pTxBuffer ;
+						Len --;
+						Len --;
+						pTxBuffer ++;
+						pTxBuffer ++;
+				}
+				else
+				{
+						//8 bit DFF
+						pSPIx->DR = *pTxBuffer ;
+						pTxBuffer ++;
+						Len --;
+				}
+		}
+}*/

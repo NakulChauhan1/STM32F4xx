@@ -1,9 +1,17 @@
+/*
+ * Send SPI_SendData API to send the string "Hello World" and use the below configurations:
+ * 1. SPI2 Master Mode
+ * 2. SCLK = Max possible
+ * 3. DFF = 0 and DFF = 1
+ */
+
 
 #include <string.h>
 #include "stm32f4xx.h"
 
 
 /*
+ * This information is present in data sheet in Pin out and Pin description
  * PB14 -------> SPI2_MISO
  * PB15 -------> SPI2_MOSI
  * PB13 -------> SPI2_SCLK
@@ -18,7 +26,7 @@ void SPI2_GPIOInits ()
 		
 		// Common attributes for all pins (ie MOSI, MISO, SCLK )
 		SPIPins.pGPIOx = GPIOB ;
-		SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN ;								//selecting alternate functionality mode
+		SPIPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN ;								//selecting alternate functionality mode in GPIO pin
 		SPIPins.GPIO_PinConfig.GPIO_PinAltFunMode = 5 ;
 		SPIPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP ;
 		SPIPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD ;
@@ -32,6 +40,8 @@ void SPI2_GPIOInits ()
 		SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
 		GPIO_Init ( &SPIPins );
 	
+
+		/* Since we are sending data only, and are using S/w Slave Management, therefore for this Application there is no need of MISO and NSS.
 		// MISO
 		SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14 ;
 		GPIO_Init ( &SPIPins );
@@ -39,6 +49,7 @@ void SPI2_GPIOInits ()
 		// NSS
 		SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
 		GPIO_Init ( &SPIPins );
+		*/
 }
 
 void SPI2_Inits ()
@@ -61,20 +72,26 @@ void SPI2_Inits ()
 int main (void)
 {
 		
-		char user_data[] = "Hello Wolrd";
+		char user_data[] = "Hello Wolrd";					//user data buffer
 	
-		SPI2_GPIOInits ();					// This function is used to initialize GPIO pins to behave as Serial Peripheral Interface 2 (SPI2) pins
+		SPI2_GPIOInits ();					// This function is used to initialize GPIO pins to behave as Serial Peripheral Interface 2 (SPI2) pins. ie after this GPIO will behave as pins of SPI peripheral
 		
 		SPI2_Inits ();							// This function does the SPI related Configuration
-	
-		// this makes NSS internally high ie make SSI = 1, and avoid MODEF error
+
+		//till here every required configuration is over, we have made GPIO to behave as we want but SPI peripheral is till disabled.
+		//Note: All configuration of peripheral need to be done before peripheral is enabled
+
+		// this makes NSS internally high ie make SSI = 1, and avoid MODEF error. SSI influences state of NSS pin.
 		SPI_SSIConfig ( SPI2, ENABLE ) ;
 	
-		//enbaling the SPI2 peripheral
+		//enabling the SPI2 peripheral, (Enabling peripheral is different thing then that of Enabling peripheral clock)
 		SPI_PeripheralControl ( SPI2, ENABLE ) ;
 	
 		SPI_SendData ( SPI2, (uint8_t *) user_data, strlen(user_data) ) ;
 	
+		//Checking weather SPI is not busy, We have to wait until the last byte is transmitted successfully, so then only we have to disable the peripheral.
+		while ( SPI_GetFlagStatus ( SPI2, SPI_BSY_FLAG ) );
+
 		//disabling the SPI2 peripheral
 		SPI_PeripheralControl ( SPI2, DISABLE ) ;
 	

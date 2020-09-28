@@ -1,4 +1,4 @@
-"Src/003led_button_ext.o"
+"Src/008spi_cmd_handling.o"
 "drivers/Src/gpio_driver.o"
 "drivers/Src/i2c_driver.o"
 "drivers/Src/rcc_driver.o"

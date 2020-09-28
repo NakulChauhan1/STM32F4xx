@@ -1,4 +1,17 @@
 /*
+ * SPI master (STM) and SPI slave (Arduino) communication.
+ * When button is pressed on the master side, master should send string of data to the Arduino slave connected.
+ * The data received by the Arduino will be displayed on the Arduino serial port.
+ * 1. use SPI full duplex communication
+ * 2. ST as Master and Arduino as Slave
+ * 3. use dff = 0
+ * 4. Use Hardware Slave Management
+ * 5. SCLK = 2Mhz, fclk = 16Mhz
+ *
+ */
+
+
+/*
  * PB14 --> SPI2_MISO
  * PB15 --> SPI2_MOSI
  * PB13 -> SPI2_SCLK
@@ -43,6 +56,13 @@ void SPI2_GPIOInits ()
 	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
 	GPIO_Init ( &spi2 );
 
+	/* Since we are not receiving anything, therefore MISO is not required.
+	 *
+	// MISO
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14 ;
+	GPIO_Init ( &SPIPins );
+	*
+	*/
 	// SCLK
 	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13 ;
 	GPIO_Init ( &spi2 );
@@ -51,20 +71,12 @@ void SPI2_GPIOInits ()
 	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
 	GPIO_Init ( &spi2 );
 
-	/* Slave is Arduino, therefore Slave Configurations has to be done at Arduino side, therefore this is not required here.
-	// Slave MOSI
-	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14 ;
-	GPIO_Init ( &spi2 );
 
-	// Slave's SCLK
-	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_10 ;
-	GPIO_Init ( &spi2 );
-
-	// Slave's NSS ie Slave's Slave Select pin
-	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9 ;
-	GPIO_Init ( &spi2 );
+	/*
+	 * Slave is Arduino, therefore Slave Configurations has to be done at Arduino side.
+	 *  ie Slave's MOSI, Slave's SCLK, Slave's NSS ie Slave's Slave Select pin configuration has to be in
+	 * Arduino side
 	*/
-
 }
 
 void SPI2_MasterInits ()
@@ -76,29 +88,13 @@ void SPI2_MasterInits ()
 	spi2.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER ;
 	spi2.SPIConfig.SPI_CPHA = SPI_CPHA_LOW ;
 	spi2.SPIConfig.SPI_CPOL = SPI_CPOL_LOW ;
-	spi2.SPIConfig.SPI_DFF = SPI_DFF_8BITS ;												//generates clock of 2MHz
-	spi2.SPIConfig.SPI_SSM = SPI_SSM_DI ;															//Hardware Slave Management
+	spi2.SPIConfig.SPI_DFF = SPI_DFF_8BITS ;												//generates clock of 2MHz (16/8)
+	spi2.SPIConfig.SPI_SSM = SPI_SSM_DI ;													//Hardware Slave Management enabled for NSS pin
 	spi2.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8 ;
 
 	SPI_Init ( &spi2 );
 }
 
-
-/*
-void SPI2_SlaveInits ()
-{
-	SPI_Handle_t spi2;
-	spi2.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_SLAVE ;
-	spi2.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD ;
-	spi2.SPIConfig.SPI_CPHA = SPI_CPHA_LOW ;
-	spi2.SPIConfig.SPI_CPOL = SPI_CPOL_LOW ;
-	spi2.SPIConfig.SPI_DFF = SPI_DFF_8BITS ;
-	spi2.SPIConfig.SPI_SSM = SPI_SSM_DI ;
-	spi2.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8 ;
-
-	SPI_Init ( &spi2 );
-}
-*/
 
 int main()
 {
@@ -112,13 +108,20 @@ int main()
 	//This function is used to initialize the SPI2 peripheral parameters
 	SPI2_MasterInits ();
 
+	/*since h/w SSM is used, therefore there is no need of SSI bit
+	 *
+	SPI_SSIConfig ( SPI2, ENABLE ) ;
+	*
+	*/
+
 
 	/*
-	* making SSOE 1 does NSS output enable.
-	* The NSS pin is automatically managed by the hardware.
-	* i.e when SPE=1 , NSS will be pulled to low
-	* and NSS pin will be high when SPE=0
-	*/
+	 * In order to enable NSS output, there is one control bit SSOE, this bit has to be enabled in order to make NSS = 1 or 0 in accordance to SPE bit.
+	 * making SSOE 1 does NSS output enable.
+	 * The NSS pin is automatically managed by the hardware.
+	 * i.e when SSM=0 and SPE=1 , NSS will be pulled to low
+	 * and NSS pin will be high when SSM=0 and SPE=0
+	 */
 
 	SPI_SSOEConfig ( SPI2, ENABLE );
 
@@ -134,10 +137,12 @@ int main()
 	SPI_PeripheralControl ( SPI2, ENABLE );
 
 	/* Slave device does not know how many data bytes we are going to send. So, we have to first send the data here,
-		but slave is not sure how many bytes you are going to send. So, first let's send that length information to the board.
+		but slave is not sure how many bytes we are going to send. So, first we have to send the length information to the board.
 		And the firmware or the sketch what is running in the Arduino will make use of that length and after that it will fetch
 		these many data bytes which you are going to send afterwards.
+		In short the Arduino Sketch expects 1 byte of length information followed by data.
 	*/
+
 	uint8_t Len = strlen ( user_data );
 	SPI_SendData ( SPI2, &Len, 1 );
 

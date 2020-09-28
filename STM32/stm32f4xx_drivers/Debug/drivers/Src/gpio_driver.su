@@ -7,6 +7,6 @@ gpio_driver.c:335:6:GPIO_WriteToOutputPort	16	static
 gpio_driver.c:355:6:GPIO_WriteToOutputPin	16	static
 gpio_driver.c:382:6:GPIO_ToggleOutputPin	16	static
 gpio_driver.c:402:6:GPIO_InterruptConfig	16	static
-gpio_driver.c:457:6:GPIO_IRQHandling	16	static
-gpio_driver.c:480:6:GPIO_IRQPriorityConfig	24	static
-gpio_driver.c:504:9:getportcode	16	static
+gpio_driver.c:458:6:GPIO_IRQPriorityConfig	24	static
+gpio_driver.c:482:6:GPIO_IRQHandling	16	static
+gpio_driver.c:506:9:getportcode	16	static

@@ -27,6 +27,8 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00010060  2**0
                   CONTENTS, READONLY
+ 12 .stabstr      0000014d  00000000  00000000  0001008a  2**0
+                  CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 

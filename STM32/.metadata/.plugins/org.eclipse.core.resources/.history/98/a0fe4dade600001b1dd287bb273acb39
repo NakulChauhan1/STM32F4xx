@@ -1,0 +1,145 @@
+/*
+ * SPI master (STM) and SPI slave (Arduino) command and response based communication.
+ * When button is pressed on the master side, master should send a command to the slave (Arduino) connected.
+ * and slave responds as per the command implementation
+ * 1. use SPI full duplex communication
+ * 2. ST as Master and Arduino as Slave
+ * 3. use dff = 0
+ * 4. Use Hardware Slave Management
+ * 5. SCLK = 2Mhz, fclk = 16Mhz
+ *
+ */
+
+#include "stm32f4xx.h"
+#include<string.h>
+
+/*These are the commands codes slave recognizes.
+ * Commands codes are user defined, these are not something which are found in Data Sheet or TRM. User defines them and in slaves sketch
+ * we write code that recognizes these commands (if conditions are used).
+ *
+ *
+*/
+
+#define COMMAND_LED_CTRL      		0x50
+#define COMMAND_SENSOR_READ      	0x51
+#define COMMAND_LED_READ      		0x52
+#define COMMAND_PRINT      			0x53
+#define COMMAND_ID_READ      		0x54
+
+#define LED_ON     					1
+#define LED_OFF    					0
+
+//arduino analog pins
+
+#define ANALOG_PIN0 				0
+#define ANALOG_PIN1 				1
+#define ANALOG_PIN2 				2
+#define ANALOG_PIN3 				3
+#define ANALOG_PIN4 				4
+
+//arduino led
+#define LED_PIN  					9
+
+
+void delay(void)
+{
+	for(uint32_t i = 0 ; i < 500000/2 ; i ++);
+}
+
+
+void GPIO_ButtonInit ()
+{
+	GPIO_Handle_t pButton;
+	pButton.pGPIOx = GPIOB;
+	pButton.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INP ;
+	pButton.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
+	pButton.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD ;
+	pButton.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
+
+	GPIO_Init ( &pButton );
+}
+
+void SPI2_GPIOInits ()
+{
+	GPIO_Handle_t spi2 ;
+	spi2.pGPIOx = GPIOB ;
+	spi2.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN ;
+	spi2.GPIO_PinConfig.GPIO_PinAltFunMode = 5 ;												//Alternate Function 5
+	spi2.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP ;
+	spi2.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU ;
+	spi2.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
+
+	// Master MOSI
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
+	GPIO_Init ( &spi2 );
+
+	// Master MISO
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14 ;
+	GPIO_Init ( &SPIPins );
+
+	// SCLK
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13 ;
+	GPIO_Init ( &spi2 );
+
+	// Master NSS
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
+	GPIO_Init ( &spi2 );
+
+	//all four pins of SPI bus are required by this Application
+
+	/*
+	 * Slave is Arduino, therefore Slave Configurations has to be done at Arduino side.
+	 *  ie Slave's MOSI, Slave's SCLK, Slave's NSS ie Slave's Slave Select pin configuration has to be in
+	 * Arduino side
+	*/
+}
+
+void SPI2_MasterInits ()
+{
+	SPI_Handle_t spi2;
+
+	spi2.pSPIx = SPI2;
+	spi2.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD ;
+	spi2.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER ;
+	spi2.SPIConfig.SPI_CPHA = SPI_CPHA_LOW ;
+	spi2.SPIConfig.SPI_CPOL = SPI_CPOL_LOW ;
+	spi2.SPIConfig.SPI_DFF = SPI_DFF_8BITS ;												//generates clock of 2MHz (16/8)
+	spi2.SPIConfig.SPI_SSM = SPI_SSM_DI ;													//Hardware Slave Management enabled for NSS pin
+	spi2.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8 ;
+
+	SPI_Init ( &spi2 );
+}
+
+
+int main()
+{
+
+	GPIO_ButtonInit ();
+
+	SPI2_GPIOInits ();
+
+	SPI2_MasterInits ();
+
+	SPI_SSOEConfig ( SPI2, ENABLE );
+
+	while (1)
+	{
+		while ( ! GPIO_ReadFromInputPin ( GPIOA, GPIO_PIN_NO_0 ) );
+
+		delay();
+
+		SPI_PeripheralControl ( SPI2, ENABLE );
+
+		uint8_t Len = strlen ( user_data );
+
+		SPI_SendData ( SPI2, &Len, 1 );
+
+		SPI_SendData ( SPI2, (uint8_t *)user_data, strlen(user_data) );
+
+		while ( SPI_GetFlagStatus ( SPI2, SPI_BSY_FLAG ) );
+
+		SPI_PeripheralControl ( SPI2, DISABLE );
+
+	}
+	return 0;
+}

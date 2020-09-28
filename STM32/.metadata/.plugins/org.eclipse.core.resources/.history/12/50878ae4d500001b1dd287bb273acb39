@@ -1,0 +1,158 @@
+/*
+ * SPI master (STM) and SPI slave (Arduino) communication.
+ * When button is pressed on the master side, master should send string of data to the Arduino slave connected.
+ * The data received by the Arduino will be displayed on the Arduino serial port.
+ * 1. use SPI full duplex communication
+ * 2. ST as Master and Arduino as Slave
+ * 3. Use Hardware Slave Management
+ * 4. SCLK = 2Mhz, fclk = 16Mhz
+ *
+ */
+
+
+/*
+ * PB14 --> SPI2_MISO
+ * PB15 --> SPI2_MOSI
+ * PB13 -> SPI2_SCLK
+ * PB12 --> SPI2_NSS
+ * ALT function mode : 5
+ */
+
+
+
+#include "stm32f4xx.h"
+#include<string.h>
+
+void delay(void)
+{
+	for(uint32_t i = 0 ; i < 500000/2 ; i ++);
+}
+
+
+void GPIO_ButtonInit ()
+{
+	GPIO_Handle_t pButton;
+	pButton.pGPIOx = GPIOB;
+	pButton.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INP ;
+	pButton.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
+	pButton.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD ;
+	pButton.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
+
+	GPIO_Init ( &pButton );
+}
+
+void SPI2_GPIOInits ()
+{
+	GPIO_Handle_t spi2 ;
+	spi2.pGPIOx = GPIOB ;
+	spi2.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN ;
+	spi2.GPIO_PinConfig.GPIO_PinAltFunMode = 5 ;												//Alternate Function 5
+	spi2.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP ;
+	spi2.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU ;
+	spi2.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST ;
+
+	// Master MOSI
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15 ;
+	GPIO_Init ( &spi2 );
+
+	/* Since we are not receiving anything, therefore MISO is not required.
+	 *
+	// MISO
+	SPIPins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14 ;
+	GPIO_Init ( &SPIPins );
+	*
+	*/
+	// SCLK
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13 ;
+	GPIO_Init ( &spi2 );
+
+	// Master NSS
+	spi2.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12 ;
+	GPIO_Init ( &spi2 );
+
+
+	/*
+	 * Slave is Arduino, therefore Slave Configurations has to be done at Arduino side.
+	 *  ie Slave's MOSI, Slave's SCLK, Slave's NSS ie Slave's Slave Select pin configuration has to be in
+	 * Arduino side
+	*/
+}
+
+void SPI2_MasterInits ()
+{
+	SPI_Handle_t spi2;
+
+	spi2.pSPIx = SPI2;
+	spi2.SPIConfig.SPI_BusConfig = SPI_BUS_CONFIG_FD ;
+	spi2.SPIConfig.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER ;
+	spi2.SPIConfig.SPI_CPHA = SPI_CPHA_LOW ;
+	spi2.SPIConfig.SPI_CPOL = SPI_CPOL_LOW ;
+	spi2.SPIConfig.SPI_DFF = SPI_DFF_8BITS ;												//generates clock of 2MHz (16/8)
+	spi2.SPIConfig.SPI_SSM = SPI_SSM_DI ;													//Hardware Slave Management enabled for NSS pin
+	spi2.SPIConfig.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8 ;
+
+	SPI_Init ( &spi2 );
+}
+
+
+int main()
+{
+	char user_data[] = "Hello World";
+
+	GPIO_ButtonInit ();
+
+	//this function is used to initialize the GPIO pins to behave as SPI2 pins
+	SPI2_GPIOInits ();
+
+	//This function is used to initialize the SPI2 peripheral parameters
+	SPI2_MasterInits ();
+
+	/*since h/w SSM is used, therefore there is no need of SSI bit
+	 *
+	SPI_SSIConfig ( SPI2, ENABLE ) ;
+	*
+	*/
+
+
+	/*
+	 * In order to enable NSS output, there is one control bit SSOE, this bit has to be enabled in order to make NSS = 1 or 0.
+	 * making SSOE 1 does NSS output enable.
+	 * The NSS pin is automatically managed by the hardware.
+	 * i.e when SSM=0 and SPE=1 , NSS will be pulled to low
+	 * and NSS pin will be high when SSM=0 and SPE=0
+	 */
+
+	SPI_SSOEConfig ( SPI2, ENABLE );
+
+	while (1)
+	{
+	//wait till button is pressed
+	while ( ! GPIO_ReadFromInputPin ( GPIOA, GPIO_PIN_NO_0 ) );
+
+	//to avoid button de-bouncing related issues 200ms of delay
+	delay();
+
+	//enabling the SPI2 peripheral
+	SPI_PeripheralControl ( SPI2, ENABLE );
+
+	/* Slave device does not know how many data bytes we are going to send. So, we have to first send the data here,
+		but slave is not sure how many bytes we are going to send. So, first we have to send the length information to the board.
+		And the firmware or the sketch what is running in the Arduino will make use of that length and after that it will fetch
+		these many data bytes which you are going to send afterwards.
+	*/
+	uint8_t Len = strlen ( user_data );
+	SPI_SendData ( SPI2, &Len, 1 );
+
+
+	//to send data
+	SPI_SendData ( SPI2, (uint8_t *)user_data, strlen(user_data) );
+
+	//Checking weather SPI is not busy, We have to wait until the last byte is transmitted successfully, so then only we have to disable the peripheral.
+	while ( SPI_GetFlagStatus ( SPI2, SPI_BSY_FLAG ) );
+
+	//disabling the SPI2 peripheral
+	SPI_PeripheralControl ( SPI2, DISABLE );
+
+	}
+	return 0;
+}
