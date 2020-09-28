@@ -396,7 +396,7 @@ void GPIO_ToggleOutputPin( GPIO_RegDef_t * pGPIOx, uint8_t PinNumber )
  *
  * @return            -
  *
- * @Note              - used to configure NVIC registers
+ * @Note              - used to configure NVIC registers, this API just need irq number, so it will be same for every peripheral
  */
 
 void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to configure IRQ number like enabling it, disabling in processor side ie in NVIC block.
@@ -452,7 +452,7 @@ void GPIO_InterruptConfig( uint32_t IRQNumber, uint8_t EnorDi )						//used to c
  *
  * @return            -
  *
- * @Note              -
+ * @Note              - this API just need irq number and Priority, so it will be same for every peripheral.
  */
 
 void GPIO_IRQPriorityConfig( uint8_t IRQNumber, uint32_t IRQPriority )

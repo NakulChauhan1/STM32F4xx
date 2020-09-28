@@ -12,9 +12,9 @@ There is no coding in it.*/
 
 
 #include<stdint.h>																//for	uint32_t
-
+#include<stddef.h>																//for NULL macro
 #define __IO volatile
-
+#define __weak __attribute__((weak))
 
 /**********************************START:Processor Specific Details **********************************/
 
@@ -51,10 +51,10 @@ There is no coding in it.*/
  * ARM Cortex Mx Processor NVIC ICERx register Addresses and definiton
  */
 
-#define NVIC_ICER0 			((__IO uint32_t*)0XE000E180)
-#define NVIC_ICER1			((__IO uint32_t*)0XE000E184)
-#define NVIC_ICER2  		((__IO uint32_t*)0XE000E188)
-#define NVIC_ICER3			((__IO uint32_t*)0XE000E18C)
+#define NVIC_ICER0		 					((__IO uint32_t*)0XE000E180)
+#define NVIC_ICER1							((__IO uint32_t*)0XE000E184)
+#define NVIC_ICER2  						((__IO uint32_t*)0XE000E188)
+#define NVIC_ICER3							((__IO uint32_t*)0XE000E18C)
 
 
 
@@ -120,8 +120,8 @@ There is no coding in it.*/
 #define EXTI_BASEADDR             		(APB2PERIPH_BASEADDR + 0x3C00UL)
 #define SPI1_BASEADDR           	  	(APB2PERIPH_BASEADDR + 0x3000UL)
 #define SPI4_BASEADDR           	  	(APB2PERIPH_BASEADDR + 0x3400UL)
-#define SYSCFG_BASEADDR          			(APB2PERIPH_BASEADDR + 0x3800UL)
-#define USART1_BASEADDR 	    	      (APB2PERIPH_BASEADDR + 0x1000UL)
+#define SYSCFG_BASEADDR          		(APB2PERIPH_BASEADDR + 0x3800UL)
+#define USART1_BASEADDR 	    	    (APB2PERIPH_BASEADDR + 0x1000UL)
 #define USART6_BASEADDR   		        (APB2PERIPH_BASEADDR + 0x1400UL)
 
 
