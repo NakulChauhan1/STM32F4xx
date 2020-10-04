@@ -475,4 +475,3 @@ void USART_IRQHandling(USART_Handle_t *pHandle)
 {
 
 }
-

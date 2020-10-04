@@ -298,80 +298,6 @@ void USART_PeriClockControl ( USART_RegDef_t * pUSARTx, uint8_t EnorDi )
 			}
 }
 
-
-
-/*********************************************************************
- * @fn      		  -USART_PeripheralControl
- *
- * @brief             - USART ENABLE or DISABLE
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            -
- *
- * @Note              -
-
- */
-
-
-void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi)
-{
-	if ( EnOrDi == ENABLE )
-	{
-		pUSARTx->CR1 |= ( 1 << USART_CR1_UE );
-	}
-	else
-	{
-		pUSARTx->CR1 &= ~( 1 << USART_CR1_UE );
-	}
-}
-
-/*********************************************************************
- * @fn      		  - USART_GetFlagStatus
- *
- * @brief             -
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            - weather that flag is enable or not
- *
- * @Note              - flagName is masking detail of corresponding flags
-
- */
-
-uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
-{
-	if ( pUSARTx->SR & FlagName )
-	{
-		return FLAG_SET;
-	}
-	return FLAG_RESET;
-}
-
-/*********************************************************************
- * @fn      		  - USART_ClearFlag
- *
- * @brief             -
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            -
- *
- * @Note              -
-
- */
-
-void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName)
-{
-	pUSARTx->SR &= ~ ( StatusFlagName );
-}
-
 /*********************************************************************
  * @fn      		  - USART_InterruptConfig
  *
@@ -476,3 +402,74 @@ void USART_IRQHandling(USART_Handle_t *pHandle)
 
 }
 
+/*********************************************************************
+ * @fn      		  -USART_PeripheralControl
+ *
+ * @brief             - USART ENABLE or DISABLE
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+
+ */
+
+
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi)
+{
+	if ( EnOrDi == ENABLE )
+	{
+		pUSARTx->CR1 |= ( 1 << USART_CR1_UE );
+	}
+	else
+	{
+		pUSARTx->CR1 &= ~( 1 << USART_CR1_UE );
+	}
+}
+
+/*********************************************************************
+ * @fn      		  - USART_GetFlagStatus
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            - weather that flag is enable or not
+ *
+ * @Note              - flagName is masking detail of corresponding flags
+
+ */
+
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName)
+{
+	if ( pUSARTx->SR & FlagName )
+	{
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}
+
+/*********************************************************************
+ * @fn      		  - USART_ClearFlag
+ *
+ * @brief             -
+ *
+ * @param[in]         -
+ * @param[in]         -
+ * @param[in]         -
+ *
+ * @return            -
+ *
+ * @Note              -
+
+ */
+
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName)
+{
+	pUSARTx->SR &= ~ ( StatusFlagName );
+}

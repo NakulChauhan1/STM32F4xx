@@ -2,3 +2,9 @@ usart_driver.c:22:6:USART_SetBaudRate	40	static
 usart_driver.c:101:6:USART_Init	24	static
 usart_driver.c:193:6:USART_DeInit	16	static
 usart_driver.c:243:6:USART_PeriClockControl	16	static
+usart_driver.c:319:6:USART_PeripheralControl	16	static
+usart_driver.c:346:9:USART_GetFlagStatus	16	static
+usart_driver.c:370:6:USART_ClearFlag	16	static
+usart_driver.c:391:6:USART_InterruptConfig	16	static
+usart_driver.c:448:6:USART_IRQPriorityConfig	24	static
+usart_driver.c:474:6:USART_IRQHandling	16	static

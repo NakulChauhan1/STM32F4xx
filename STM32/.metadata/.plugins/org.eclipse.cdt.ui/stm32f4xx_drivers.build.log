@@ -1,10 +1,21 @@
-23:54:04 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
+15:26:18 **** Incremental Build of configuration Debug for project stm32f4xx_drivers ****
 make -j4 all 
+arm-none-eabi-gcc "../drivers/Src/usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I"N:/stm/STM32/stm32f4xx_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/usart_driver.d" -MT"drivers/Src/usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/usart_driver.o"
+arm-none-eabi-gcc -o "stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"N:\stm\STM32\stm32f4xx_drivers\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.4.0.202007081208\tools\arm-none-eabi\bin\ld.exe: warning: cannot find entry symbol Reset_Handler; defaulting to 0000000008000000
+Finished building target: stm32f4xx_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f4xx_drivers.elf  > "stm32f4xx_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f4xx_drivers.elf  "stm32f4xx_drivers.bin"
 arm-none-eabi-size   stm32f4xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
      88	      8	   1568	   1664	    680	stm32f4xx_drivers.elf
 Finished building: default.size.stdout
+Finished building: stm32f4xx_drivers.list
+ 
+Finished building: stm32f4xx_drivers.bin
+ 
  
 
-23:54:04 Build Finished. 0 errors, 0 warnings. (took 344ms)
+15:26:21 Build Finished. 0 errors, 1 warnings. (took 2s.949ms)
 

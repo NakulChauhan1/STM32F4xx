@@ -93,23 +93,6 @@ typedef struct
 #define USART_HW_FLOW_CTRL_CTS_RTS			3
 
 
-/*
- *	@USART related status flags definitions ( Masking details of various flags )
- */
-
-#define USART_PE_FLAG							( 1 << 0 )
-#define USART_FE_FLAG							( 1 << 1 )
-#define USART_NF_FLAG							( 1 << 2 )
-#define USART_ORE_FLAG							( 1 << 3 )
-#define USART_IDLE_FLAG							( 1 << 4 )
-#define USART_RXNE_FLAG							( 1 << 5 )
-#define USART_TC_FLAG							( 1 << 6 )
-#define USART_TXE_FLAG							( 1 << 7 )
-#define USART_LBD_FLAG							( 1 << 8 )
-#define USART_CTS_FLAG							( 1 << 9 )
-
-
-
 /******************************************************************************************
  *								APIs supported by this driver
  *		 For more information about the APIs check the function definitions
