@@ -13,8 +13,8 @@ There is no coding in it.*/
 
 #include<stdint.h>																//for	uint32_t
 #include<stddef.h>																//for NULL macro
-#define __IO 							volatile
-#define __weak 							__attribute__((weak))
+#define __IO volatile
+#define __weak __attribute__((weak))
 
 /**********************************START:Processor Specific Details **********************************/
 

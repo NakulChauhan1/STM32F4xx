@@ -114,13 +114,6 @@ typedef struct
 #define USART_LBD_FLAG							( 1 << 8 )
 #define USART_CTS_FLAG							( 1 << 9 )
 
-/*
- * Application states
- */
-
-#define USART_READY 							0
-#define USART_BUSY_IN_RX 						1
-#define USART_BUSY_IN_TX 						2
 
 
 /******************************************************************************************
@@ -146,8 +139,8 @@ void USART_DeInit(USART_RegDef_t *pUSARTx);
  * Data Send and Receive
  */
 
-void USART_SendData(USART_Handle_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len);
-void USART_ReceiveData(USART_Handle_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len);
+void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len);
+void USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len);
 uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len);
 uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
 

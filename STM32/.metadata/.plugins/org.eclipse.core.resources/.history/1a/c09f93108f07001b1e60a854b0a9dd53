@@ -5,7 +5,7 @@
 /* These are private helper functions, user cannot call it because these are declared as static, these can be accessed only in this file*/
 static void spi_txe_interrupt_handler ( SPI_Handle_t *pSPIHandle );
 static void spi_rxne_interrupt_handler ( SPI_Handle_t *pSPIHandle );
-static void spi_over_err_interrupt_handler ( SPI_Handle_t *pSPIHandle );
+static void  spi_over_err_interrupt_handler ( SPI_Handle_t *pSPIHandle );
 
 
 /*********************************************************************
@@ -689,7 +689,6 @@ __weak void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle,uint8_t AppEv)
 
 	//This is a weak implementation . the user application may override this function.
 }
-
 
 
 
