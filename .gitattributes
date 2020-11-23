@@ -1,2 +1,2 @@
-*.scala linguist-detectable=false
-*.c linguist-detectable=true
+*.Scala linguist-detectable=false
+*.C linguist-detectable=true
